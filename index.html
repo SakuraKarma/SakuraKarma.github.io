@@ -84,6 +84,80 @@ var _hmt = _hmt || [];
     
     
     
+    <article id="post-CF-1251C-Minimize-The-Integer-题解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/10/CF-1251C-Minimize-The-Integer-%E9%A2%98%E8%A7%A3/"
+    >CF-1251C Minimize The Integer 题解</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/10/CF-1251C-Minimize-The-Integer-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-07-10T12:02:30.508Z" itemprop="datePublished">2020-07-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="">题目大意</a></h3><p>给你一串数字序列，如果两个数奇偶性不同，就可以交换位置，问这一串数字序列最小值是多少。</p>
+      
+      <a class="article-more-link" href="/2020/07/10/CF-1251C-Minimize-The-Integer-%E9%A2%98%E8%A7%A3/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-西邮第五届ACM-ICPC-B-烦人的依赖-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -506,19 +580,9 @@ var _hmt = _hmt || [];
       
       <h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><p>约瑟夫环问题都很熟悉了，这里也就不多赘述了。</p>
 <p>主要是来记录一下，约瑟夫环的一些解法。</p>
-<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>这里我就不详细写推理的过程了。。（其实我也不会。。</p>
-<p>网上应该一搜一大片。</p>
-<p>1、迭代</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cir</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		p=(p+m)%i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2、公式</p>
-<p>我不知道这个公式是哪个鬼才想出来的。。</p>
-<p>我在网上都没有找到。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">S</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n&amp;<span class="number">1</span>)	<span class="keyword">return</span> S((n<span class="number">-1</span>)/<span class="number">2</span>)*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>	<span class="keyword">return</span> S(n/<span class="number">2</span>)*<span class="number">2</span><span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用这个可以过掉1e9的题。。</p>
-<p>上面那个会TLE。</p>
-
+      
+      <a class="article-more-link" href="/2020/07/08/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -773,81 +837,6 @@ var _hmt = _hmt || [];
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E4%BD%8DDP/" rel="tag">数位DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-拓展欧几里得、逆元、线性同余方程、中国剩余定理和拓展中国剩余定理" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/08/%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E3%80%81%E9%80%86%E5%85%83%E3%80%81%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B%E3%80%81%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E5%92%8C%E6%8B%93%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/"
-    >拓展欧几里得、逆元、线性同余方程、中国剩余定理和拓展中国剩余定理</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/08/%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E3%80%81%E9%80%86%E5%85%83%E3%80%81%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B%E3%80%81%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E5%92%8C%E6%8B%93%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" class="article-date">
-  <time datetime="2020-07-08T12:21:18.125Z" itemprop="datePublished">2020-07-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h3 id="拓欧介绍"><a href="#拓欧介绍" class="headerlink" title="拓欧介绍"></a>拓欧介绍</h3><p>简单来说，拓欧就是求关于x，y的方程$ax+by=gcd(a,b)$的所有整数解。</p>
-<p>这里就简单的证一下，详细证明点<a href="https://blog.csdn.net/weixin_39645344/article/details/83615901" target="_blank" rel="noopener">这里</a></p>
-      
-      <a class="article-more-link" href="/2020/07/08/%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E3%80%81%E9%80%86%E5%85%83%E3%80%81%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B%E3%80%81%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E5%92%8C%E6%8B%93%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" rel="tag">中国剩余定理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%93%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" rel="tag">拓展中国剩余定理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" rel="tag">拓展欧几里得</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/" rel="tag">线性同余方程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%80%86%E5%85%83/" rel="tag">逆元</a></li></ul>
 
 
     </footer>
