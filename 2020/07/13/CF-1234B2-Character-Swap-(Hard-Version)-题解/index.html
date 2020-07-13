@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    HDU-1005 Number Sequence 题解 |  Dream
+    CF-1234B2 Character Swap (Hard Version) 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-HDU-1005-Number-Sequence-题解" class="article article-type-post" itemscope
+  <article id="post-CF-1234B2-Character-Swap-(Hard-Version)-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  HDU-1005 Number Sequence 题解
+  CF-1234B2 Character Swap (Hard Version) 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/07/13/HDU-1005-Number-Sequence-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-07-13T01:52:07.883Z" itemprop="datePublished">2020-07-13</time>
+      <a href="/2020/07/13/CF-1234B2-Character-Swap-(Hard-Version)-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-07-13T14:53:35.554Z" itemprop="datePublished">2020-07-13</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">630</span>
+            <span class="post-count">450</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -116,33 +116,18 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1005" target="_blank" rel="noopener">题目大意</a></h3><p>定义一个等式$f(n)$.</p>
-<p>$f(1) = 1, f(2) = 1, f(n) = (A * f(n - 1) + B * f(n - 2)) mod 7.$</p>
-<p>输入A、B和n，求出$f(n)$.</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>给你一个长度为n的两个字符串，你可以交换$s1[i],s2[j]$，最多可以交换2n次，需要你判断能否使两字符串相同，能的话输出交换顺序。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>之前写这种题，一看就是有规律。</p>
-<p>然后以49一循环，这题简单a了。。</p>
-<p>但是其实是因为杭电数据太水了。。</p>
-<p>附上别人的测试数据。</p>
-<blockquote>
-<p>input</p>
-<p>247 602 35363857<br>376 392 9671521<br>759 623 18545473<br>53 399 46626337<br>316 880 10470347<br>0 0 0</p>
-<p>output</p>
-<p>4<br>3<br>5<br>2<br>3</p>
-</blockquote>
-<p>我的代码是过不了的。。</p>
-<p>所以说这题正解应该是矩阵快速幂。</p>
-<p>其实矩阵快速幂和快速幂差不多，就是把数字的乘法换成矩阵的乘法即可。</p>
-<p>由题目可以得到$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(3) \\     f(2) \\    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \\    1 &amp; 0 \\    \end{array} \right)    &amp;    \left( \begin{array}{ccc}    f(2)\\    f(1) \\    \end{array} \right)    \end{array}    \end{equation}$</p>
-<p>$f(3)=a\times f(2)+b\times f(1)$.</p>
-<p>将公式推广到n。</p>
-<p>$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(n) \\     f(n-1) \\    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \\    1 &amp; 0 \\    \end{array} \right)^{n-2}    &amp;    \left( \begin{array}{ccc}    f(2) \\    f(1) \\    \end{array} \right)    \end{array}    \end{equation}$</p>
-<p>设$A =       \left( \begin{array}{ccc}     a &amp; b \\     1 &amp; 0 \\    \end{array} \right)^{n-2}$</p>
-<p>可以得到$f(n)=(A[0][0]+A[0][1])%7$。</p>
-<p>所以关键就是要使用快速幂计算出A，即可得出答案。</p>
-<p>补充：单位矩阵为对角线为1，其余都为0的矩阵。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> m[<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line">&#125;M;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(M &amp;a, M b)</span> </span>&#123;</span><br><span class="line">	M ans;</span><br><span class="line">	ans.m[<span class="number">0</span>][<span class="number">0</span>] = ans.m[<span class="number">0</span>][<span class="number">1</span>] = ans.m[<span class="number">1</span>][<span class="number">0</span>] = ans.m[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++)</span><br><span class="line">				ans.m[i][j] += (a.m[i][k] * b.m[k][j])%<span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			a.m[i][j] = ans.m[i][j]%<span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpow</span><span class="params">(M a, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	M ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;<span class="comment">//这里换成单位矩阵会更好，之前不知道。。</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			ans.m[i][j] = a.m[i][j] % <span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	n--;</span><br><span class="line">	<span class="keyword">while</span> (n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n &amp; <span class="number">1</span>) mul(ans, a);</span><br><span class="line">		n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">		mul(a, a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; (ans.m[<span class="number">0</span>][<span class="number">1</span>] + ans.m[<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">7</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	M m;</span><br><span class="line">	<span class="keyword">int</span> a, b, n;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; n &amp;&amp; a || b || n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		m.m[<span class="number">0</span>][<span class="number">0</span>] = a;</span><br><span class="line">		m.m[<span class="number">0</span>][<span class="number">1</span>] = b;</span><br><span class="line">		m.m[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">		m.m[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">		qpow(m, n<span class="number">-2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>说实话这个题目还真不难。。</p>
+<p>但是我就是没想到啊啊啊。</p>
+<p>感觉自己脑袋越来越不好用了。</p>
+<p>这个字符串长度不长，可以直接用模拟。</p>
+<p>模拟两个字符串的交换过程，并且记录交换顺序即可。</p>
+<p>当他们两个位置相同的时候不需要去交换。</p>
+<p>然后交换的时候分两种情况，具体看代码吧。</p>
+<p>顺便记录一下，了解到了一个新算法：sunday算法，用来匹配字符串的，有机会之后再补。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt;v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="keyword">int</span> n;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="keyword">char</span> s1[<span class="number">100</span>], s2[<span class="number">100</span>];</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s1+<span class="number">1</span> &gt;&gt; s2+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> cnt[<span class="number">200</span>];</span><br><span class="line">		<span class="built_in">memset</span>(cnt, <span class="number">0</span>, <span class="keyword">sizeof</span>(cnt));</span><br><span class="line">		v.<span class="built_in">clear</span>();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			cnt[s1[i]]++, cnt[s2[i]]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="string">'a'</span>; i &lt;= <span class="string">'z'</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (cnt[i] &amp; <span class="number">1</span>) &#123;</span><br><span class="line">				flag = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s1[i] != s2[i]) &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (s1[i] == s1[j]) &#123;</span><br><span class="line">						swap(s2[i], s1[j]);</span><br><span class="line">						v.push_back(make_pair(j, i));</span><br><span class="line">						c++;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">						swap(s1[i + <span class="number">1</span>], s2[j]);</span><br><span class="line">						v.push_back(make_pair(i+<span class="number">1</span>, j));</span><br><span class="line">						swap(s2[i], s1[i + <span class="number">1</span>]);</span><br><span class="line">						v.push_back(make_pair(i+<span class="number">1</span>, i));</span><br><span class="line">						c += <span class="number">2</span>;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">auto</span> x : v) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; x.first &lt;&lt; <span class="string">' '</span> &lt;&lt; x.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -208,14 +193,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/13/HDU-1005-Number-Sequence-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/13/CF-1234B2-Character-Swap-(Hard-Version)-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">矩阵快速幂</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
 
 
     </footer>
@@ -226,19 +211,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
+    
       <a href="/2020/07/13/CF-1260C-Infinite-Fence-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            CF-1260C Infinite Fence 题解
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/07/10/CF-1251C-Minimize-The-Integer-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CF-1251C Minimize The Integer 题解</div>
+        <div class="article-nav-title">CF-1260C Infinite Fence 题解</div>
       </a>
     
   </nav>

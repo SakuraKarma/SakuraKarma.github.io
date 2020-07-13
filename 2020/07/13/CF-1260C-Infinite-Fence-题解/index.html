@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    HDU-1005 Number Sequence 题解 |  Dream
+    CF-1260C Infinite Fence 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-HDU-1005-Number-Sequence-题解" class="article article-type-post" itemscope
+  <article id="post-CF-1260C-Infinite-Fence-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  HDU-1005 Number Sequence 题解
+  CF-1260C Infinite Fence 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/07/13/HDU-1005-Number-Sequence-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-07-13T01:52:07.883Z" itemprop="datePublished">2020-07-13</time>
+      <a href="/2020/07/13/CF-1260C-Infinite-Fence-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-07-13T11:06:06.818Z" itemprop="datePublished">2020-07-13</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">630</span>
+            <span class="post-count">461</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -116,33 +116,26 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1005" target="_blank" rel="noopener">题目大意</a></h3><p>定义一个等式$f(n)$.</p>
-<p>$f(1) = 1, f(2) = 1, f(n) = (A * f(n - 1) + B * f(n - 2)) mod 7.$</p>
-<p>输入A、B和n，求出$f(n)$.</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="https://codeforces.com/problemset/problem/1260/C" target="_blank" rel="noopener">题目大意</a></h3><p>从0开始有$10^{100}$堵墙，当序号为b的倍数时，涂成蓝色，当序号为r的倍数时，涂成红色，当既是b的倍数又是r的倍数时，可以任意选择颜色。问连续相同颜色的墙的数量是否大于k。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>之前写这种题，一看就是有规律。</p>
-<p>然后以49一循环，这题简单a了。。</p>
-<p>但是其实是因为杭电数据太水了。。</p>
-<p>附上别人的测试数据。</p>
-<blockquote>
-<p>input</p>
-<p>247 602 35363857<br>376 392 9671521<br>759 623 18545473<br>53 399 46626337<br>316 880 10470347<br>0 0 0</p>
-<p>output</p>
-<p>4<br>3<br>5<br>2<br>3</p>
-</blockquote>
-<p>我的代码是过不了的。。</p>
-<p>所以说这题正解应该是矩阵快速幂。</p>
-<p>其实矩阵快速幂和快速幂差不多，就是把数字的乘法换成矩阵的乘法即可。</p>
-<p>由题目可以得到$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(3) \\     f(2) \\    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \\    1 &amp; 0 \\    \end{array} \right)    &amp;    \left( \begin{array}{ccc}    f(2)\\    f(1) \\    \end{array} \right)    \end{array}    \end{equation}$</p>
-<p>$f(3)=a\times f(2)+b\times f(1)$.</p>
-<p>将公式推广到n。</p>
-<p>$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(n) \\     f(n-1) \\    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \\    1 &amp; 0 \\    \end{array} \right)^{n-2}    &amp;    \left( \begin{array}{ccc}    f(2) \\    f(1) \\    \end{array} \right)    \end{array}    \end{equation}$</p>
-<p>设$A =       \left( \begin{array}{ccc}     a &amp; b \\     1 &amp; 0 \\    \end{array} \right)^{n-2}$</p>
-<p>可以得到$f(n)=(A[0][0]+A[0][1])%7$。</p>
-<p>所以关键就是要使用快速幂计算出A，即可得出答案。</p>
-<p>补充：单位矩阵为对角线为1，其余都为0的矩阵。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> m[<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line">&#125;M;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(M &amp;a, M b)</span> </span>&#123;</span><br><span class="line">	M ans;</span><br><span class="line">	ans.m[<span class="number">0</span>][<span class="number">0</span>] = ans.m[<span class="number">0</span>][<span class="number">1</span>] = ans.m[<span class="number">1</span>][<span class="number">0</span>] = ans.m[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++)</span><br><span class="line">				ans.m[i][j] += (a.m[i][k] * b.m[k][j])%<span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			a.m[i][j] = ans.m[i][j]%<span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpow</span><span class="params">(M a, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	M ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;<span class="comment">//这里换成单位矩阵会更好，之前不知道。。</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++) &#123;</span><br><span class="line">			ans.m[i][j] = a.m[i][j] % <span class="number">7</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	n--;</span><br><span class="line">	<span class="keyword">while</span> (n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n &amp; <span class="number">1</span>) mul(ans, a);</span><br><span class="line">		n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">		mul(a, a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; (ans.m[<span class="number">0</span>][<span class="number">1</span>] + ans.m[<span class="number">0</span>][<span class="number">0</span>]) % <span class="number">7</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	M m;</span><br><span class="line">	<span class="keyword">int</span> a, b, n;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; n &amp;&amp; a || b || n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		m.m[<span class="number">0</span>][<span class="number">0</span>] = a;</span><br><span class="line">		m.m[<span class="number">0</span>][<span class="number">1</span>] = b;</span><br><span class="line">		m.m[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">		m.m[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">		qpow(m, n<span class="number">-2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题是真的坑。。</p>
+<p>我想了好久，但是我的思路一直wa。。</p>
+<p>没想到什么好的方法，最后还是去看了题解。。</p>
+<p>发现我的思路很接近正解了，就是找的区间不一样。</p>
+<p>正解的区间是两个区间起点最近的一个区间，我是$[b,2b]$。。</p>
+<p>其实这种题还是挺考验数学思维的。</p>
+<p>首先，我们假设r小于b。</p>
+<p>显然，最长的连续的区间肯定是在两个b的倍数之间的。</p>
+<p>那么对于r来说，最长的区间长度就是b-1。</p>
+<p>接下来就需要找到r的区间了。</p>
+<p>设b的区间为$[n_1b,n_2b]$。</p>
+<p>设距离左端点最近的距离为l。</p>
+<p>那么则有$n_1b+t=kr$，由拓欧得，式子可以变为$n_1b+kr=t$，当$gcd(b,r)|t$时有解，t最小为$gcd(b,r)$。</p>
+<p>得到r的区间长度为$(b-1)-gcd(b,r)$。</p>
+<p>所以这个区间的红色木板的个数为$\frac{(b-1)-gcd(b,r)}{r}+1$,显然，这个也是最大的连续的个数。</p>
+<p>判断这个与k的大小关系即可。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !b ? a: gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t,m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		ll r, b, k;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; r &gt;&gt; b &gt;&gt; k;</span><br><span class="line">		<span class="keyword">if</span> (r &gt; b)	swap(r, b);</span><br><span class="line">		ll ans = (b - <span class="number">1</span> - gcd(r, b)) / r + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (ans&gt;=k)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"REBEL"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"OBEY"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -208,14 +201,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/13/HDU-1005-Number-Sequence-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/13/CF-1260C-Infinite-Fence-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag">矩阵快速幂</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
 
 
     </footer>
@@ -226,19 +219,19 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/07/13/CF-1260C-Infinite-Fence-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/07/13/CF-1234B2-Character-Swap-(Hard-Version)-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CF-1260C Infinite Fence 题解
+            CF-1234B2 Character Swap (Hard Version) 题解
           
         </div>
       </a>
     
     
-      <a href="/2020/07/10/CF-1251C-Minimize-The-Integer-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/07/13/HDU-1005-Number-Sequence-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CF-1251C Minimize The Integer 题解</div>
+        <div class="article-nav-title">HDU-1005 Number Sequence 题解</div>
       </a>
     
   </nav>
