@@ -134,11 +134,11 @@ var _hmt = _hmt || [];
 <p>我的代码是过不了的。。</p>
 <p>所以说这题正解应该是矩阵快速幂。</p>
 <p>其实矩阵快速幂和快速幂差不多，就是把数字的乘法换成矩阵的乘法即可。</p>
-<p>由题目可以得到$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(3) \     f(2) \    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \    1 &amp; 0 \    \end{array} \right)    &amp;    \left( \begin{array}{ccc}    f(2)\    f(1) \    \end{array} \right)    \end{array}    \end{equation}$</p>
+<p>由题目可以得到$\begin{equation}    \begin{array}{c c}     \left( \begin{array}{ccc}     f(3) \\     f(2) \\    \end{array} \right)    &amp;   = \left( \begin{array}{ccc}    a &amp; b \\    1 &amp; 0 \\    \end{array} \right)    &amp;    \left( \begin{array}{ccc}    f(2)\\    f(1) \\    \end{array} \right)    \end{array}    \end{equation}$</p>
 <p>$f(3)=a\times f(2)+b\times f(1)$.</p>
 <p>将公式推广到n。</p>
 <p>$\begin{equation}<br>    \begin{array}{c c}<br>     \left( \begin{array}{ccc}<br>     f(n) \<br>     f(n-1) \<br>    \end{array} \right)<br>    &amp;<br>   = \left( \begin{array}{ccc}<br>    a &amp; b \<br>    1 &amp; 0 \<br>    \end{array} \right)^{n-2}<br>    &amp;<br>    \left( \begin{array}{ccc}<br>    f(2)\<br>    f(1) \<br>    \end{array} \right)<br>    \end{array}<br>    \end{equation}$</p>
-<p>设$A =       \left( \begin{array}{ccc}     a &amp; b \     1 &amp; 0 \    \end{array} \right)^{n-2}$</p>
+<p>设$A =       \left( \begin{array}{ccc}     a &amp; b \\     1 &amp; 0 \\    \end{array} \right)^{n-2}$</p>
 <p>可以得到$f(n)=(A[0][0]+A[0][1])%7$。</p>
 <p>所以关键就是要使用快速幂计算出A，即可得出答案。</p>
 <p>补充：单位矩阵为对角线为1，其余都为0的矩阵。</p>
