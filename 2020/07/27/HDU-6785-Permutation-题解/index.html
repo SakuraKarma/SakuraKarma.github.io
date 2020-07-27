@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    HDU-6781 Solo 题解 |  Dream
+    HDU-6785 Permutation 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-HDU-6781-Solo-题解" class="article article-type-post" itemscope
+  <article id="post-HDU-6785-Permutation-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  HDU-6781 Solo 题解
+  HDU-6785 Permutation 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/07/26/HDU-6781-Solo-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-07-26T04:11:21.013Z" itemprop="datePublished">2020-07-26</time>
+      <a href="/2020/07/27/HDU-6785-Permutation-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-07-27T03:43:45.732Z" itemprop="datePublished">2020-07-27</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">683</span>
+            <span class="post-count">583</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -116,35 +116,34 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6781" target="_blank" rel="noopener">题目大意</a></h3><p>一场比赛总共有n个题，A需要a[i]分钟写出这个题目，B需要b[i]分钟写出这个题目，每个题目率先通过的人得一分，如果同时通过，记A得一分。</p>
-<p>A和B都是开始做一道题，就会直到这题做完或者对手通过这题。</p>
-<p>做完了不一定要立马提交，可以之后再交。</p>
-<p>A知道B的做题顺序是从1到n，求A最多得几分。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6785" target="_blank" rel="noopener">题目大意</a></h3><p>给你一串数字序列1~n，问你最多交换m对数字，最多能构成多少对逆序对。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>比赛的时候看到这个题目的时候就是一脸懵。</p>
-<p>跑到群里看了看，大佬说这个是dp。</p>
-<p>更懵了。</p>
-<p>这dp的状态我都没想到。。</p>
-<p>刚开始是想，在前i分钟中，前j题的得分数的最大值。</p>
-<p>但是这个分钟是$10^{18}$了，开不到。</p>
-<p>而且好像也不好写。</p>
-<p>写不出，看了眼题解。</p>
-<p>发现是前i题中，得j分的最小时间。</p>
-<p>这个思路好妙啊。</p>
-<p>之前看y总的dp教学视频说，一般dp的值是问题所求的量。</p>
-<p>但是这个题目不一样。</p>
-<p>好像目前还没做过这样的题目。</p>
-<p>那么这个题目的决策就是这个题目做与不做。</p>
-<p>如果做，则就需要考虑B做到这个题目所需要的时间。</p>
-<p>可以用前缀和数组pre来表示B做到这个题目所需要的时间。</p>
-<p>如果做，所需要的时间为$dp[i - 1] [j - 1] + 1LL * a[i]$</p>
-<p>如果这个值小于等于B做到这里的时间，则可以进行状态转移。</p>
-<p>$\large dp[i][j] = min(dp[i][j], t)$</p>
-<p>如果这个值大于B做到这里的时间，则说明在B做完之前，A是做不完这个题目的。</p>
-<p>如果不做，则状态转移为$\large dp[i][j] = min(dp[i][j], dp[i - 1][j])$。</p>
-<p>（dp老苦手了。。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2020</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], b[N];</span><br><span class="line">ll dp[N][N], pre[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="built_in">memset</span>(pre, <span class="number">0</span>, <span class="keyword">sizeof</span>(pre));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)    <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)    <span class="built_in">cin</span> &gt;&gt; b[i], pre[i] = pre[i - <span class="number">1</span>] + b[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++)    dp[i][j] = <span class="number">1e18</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                dp[i][j] = <span class="built_in">min</span>(dp[i][j], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                ll t = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1L</span>L * a[i];</span><br><span class="line">                <span class="keyword">if</span> (t &lt;= pre[i])    dp[i][j] = <span class="built_in">min</span>(dp[i][j], t);</span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] != <span class="number">1e18</span>)    ans = <span class="built_in">max</span>(ans, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>刚开始花了十分钟， a了两道，写到了这个题。</p>
+<p>觉得这个题目不难。</p>
+<p>写完之后，wa了一万遍。。</p>
+<p>卡了好久，就没打了。</p>
+<p>后面一看，发现自己思路出了点问题。</p>
+<p>其实就是一个很简单的题目。</p>
+<p>首先为了逆序对最多，肯定是优先交换队列首尾。</p>
+<p>然后队列不断向中间移动。</p>
+<p>当时不知道怎么想的，脑袋一抽，想成了第一位移动，最后一位不动了。。</p>
+<p>那么首先考虑能够构造出n~1的次数，很显然是$\large \frac {n}{2}$次。</p>
+<p>答案就是从1加到n-1。</p>
+<p>如果$\large m&lt;\frac {n}{2}$，则说明不能全部到过来。</p>
+<p>这个时候就需要自己找出公式了。</p>
+<p>可以把交换m次之后的序列分为三份。</p>
+<p>最前面那一份，分别与后面所有的数构成逆序对。</p>
+<p>答案为n-1加到n-m。</p>
+<p>中间那一份，每个都与最后面那一份构成逆序对。</p>
+<p>易知中间的区间为$[m+1,n-m]$。</p>
+<p>最后面的数的个数为m个。</p>
+<p>所以答案为$(n-2m)*m$。</p>
+<p>最后面的那一份，每个数也都与后面的数构成逆序对。</p>
+<p>（之前就是忘了这个，wa了好久。</p>
+<p>答案为1加到m-1。</p>
+<p>我的代码思路用的是前缀和，其实用数学的等差求和也可以，应该会更快。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line">ll sum[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= <span class="number">1e6</span>; i++) &#123;</span><br><span class="line">		sum[i] = sum[i - <span class="number">1</span>] + i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		ll n, m;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span> || !m) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ll ans;</span><br><span class="line">		<span class="keyword">int</span> t = n / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (t &lt;= m)	ans = sum[n - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			ans = sum[n - <span class="number">1</span>] - sum[n - m - <span class="number">1</span>] + (n - <span class="number">2</span> * m) * m + sum[m - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -210,14 +209,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/26/HDU-6781-Solo-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/27/HDU-6785-Permutation-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
 
 
     </footer>
@@ -228,19 +227,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/07/27/HDU-6785-Permutation-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            HDU-6785 Permutation 题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/07/26/HDU-6778-Car-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/07/26/HDU-6781-Solo-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">HDU-6778 Car 题解</div>
+        <div class="article-nav-title">HDU-6781 Solo 题解</div>
       </a>
     
   </nav>
