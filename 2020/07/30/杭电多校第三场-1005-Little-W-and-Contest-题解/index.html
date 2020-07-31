@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    杭电多校第三场 1009 Parentheses Matching 题解 |  Dream
+    杭电多校第三场 1005 Little W and Contest 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-杭电多校第三场-1009-Parentheses-Matching-题解" class="article article-type-post" itemscope
+  <article id="post-杭电多校第三场-1005-Little-W-and-Contest-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  杭电多校第三场 1009 Parentheses Matching 题解
+  杭电多校第三场 1005 Little W and Contest 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/07/29/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1009-Parentheses-Matching-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-07-29T06:46:12.925Z" itemprop="datePublished">2020-07-29</time>
+      <a href="/2020/07/30/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1005-Little-W-and-Contest-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-07-30T03:22:20.208Z" itemprop="datePublished">2020-07-30</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">655</span>
+            <span class="post-count">609</span>
         </span>
     </span>
 
@@ -116,29 +116,27 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6799" target="_blank" rel="noopener">题目大意</a></h3><p>给你一个只含有$*,(,)$三种字符的字符串。</p>
-<p>你可以将*变成空字符串或者左右括号，你需要使左右括号匹配，并且使这个字符串字典序最小，输出最后的字符串。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6795" target="_blank" rel="noopener">题目大意</a></h3><p>总共有n个人，每个人都有自己的权值1或者2。</p>
+<p>组成一个队伍至少需要三个人，最少需要两个2。每个队伍不能存在任意两个互相认识的人。</p>
+<p>输入n-1组关系，使两个人熟悉，保证之前是都不认识的。输出每一次熟悉之后剩下的能组成队伍的个数。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我是真的不是很会写字符串。</p>
-<p>比赛发现自己一身都是弱点。。</p>
-<p>之前打cf时也差不多，只要碰上字符串的题目，稍微难一点就不会写了。</p>
-<p>难受。</p>
-<p>其实只是单纯的匹配到还挺简单的，只需要按照可以统计左括号的数量，每遇到一个右括号，就使左括号的数量减一，并且统计之前的*数量。</p>
-<p>如果匹配到右括号发现左括号没了，就可以让*变成左括号。</p>
-<p>如果匹配到最后，发现左括号多了，就可以让*变成右括号。</p>
-<p>多出来就删掉。</p>
-<p>关键是需要字典序最小。</p>
-<p>这里可以使用贪心，尽可能在最左边变成左括号，在最右边变成右括号。</p>
-<p>最后需要判断是否满足匹配的字符串即可。</p>
-<p>可以用pos数组来记录一下*的位置，优先使用最前面的。</p>
-<p>这里记录一下，本来都过了的，因为用了memset，导致超时了，还特别严重。</p>
-<p>ac代码400+ms，用了memset2sT了。</p>
-<p>查了一下，发现memset效率和for循环差不多。</p>
-<p>下次还是按照题目大小来用for吧。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> pos[N];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="comment">//string s;</span></span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">		<span class="keyword">int</span> l = <span class="built_in">strlen</span>(s);</span><br><span class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>, pre = <span class="number">0</span>, now = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//memset(pos, -1, sizeof(pos));</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= l; i++)	pos[i] = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == <span class="string">'('</span>) cnt++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">')'</span>) &#123;</span><br><span class="line">				cnt--;</span><br><span class="line">				<span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> (pos[now]==<span class="number">-1</span>)	<span class="keyword">break</span>;</span><br><span class="line">					now = pos[now];</span><br><span class="line">					s[now - <span class="number">1</span>] = <span class="string">'('</span>;</span><br><span class="line">					cnt = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> pos[pre] = i+<span class="number">1</span>, pre = i+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cnt &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = l - <span class="number">1</span>; i&gt;=<span class="number">0</span> &amp;&amp; cnt; i--) &#123;</span><br><span class="line">				<span class="keyword">if</span> (s[i] == <span class="string">'*'</span>)	cnt--,s[i] = <span class="string">')'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cnt = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == <span class="string">'('</span>) cnt++;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">')'</span>) &#123;</span><br><span class="line">				cnt--;</span><br><span class="line">				<span class="keyword">if</span> (cnt &lt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cnt!=<span class="number">0</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"No solution!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (s[i] != <span class="string">'*'</span>)	<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题目其实看懂了不难。</p>
+<p>首先全部个数就是$C_{cnt2}^{3}+C_{cnt1}^1*C_{cnt2}^2$。</p>
+<p>（在求这个的时候我又用了取模。。我又忘了除法不能同余。我自裁。。</p>
+<p>之后就只需要在这个基础上不断减少就可以了。</p>
+<p>用c1和c2两个数组来维持并查集中不同集合中的为1和为2的个数。</p>
+<p>因为之前都是互不认识的，所以必定根节点不同。</p>
+<p>（之前就没注意到，想了好久要不要判断是否根节点不同。。</p>
+<p>之后的就简单了，考虑到四种情况就可以了。</p>
+<blockquote>
+<p>1、1 2 2</p>
+<p>2、2 1 2</p>
+<p>3、2 2 1</p>
+<p>4、2 2 2</p>
+</blockquote>
+<p>把这四种情况减去就可以了。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> fa[N];</span><br><span class="line">ll c1[N], c2[N];</span><br><span class="line">ll cnt1, cnt2;</span><br><span class="line">ll ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> son)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> root = son;</span><br><span class="line">	<span class="keyword">while</span> (fa[root] != root)	root = fa[root];</span><br><span class="line">	<span class="keyword">while</span> (son != root) &#123;</span><br><span class="line">		<span class="keyword">int</span> t = fa[son];</span><br><span class="line">		fa[son] = root;</span><br><span class="line">		son = t;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> rt1 = <span class="built_in">find</span>(a), rt2 = <span class="built_in">find</span>(b);</span><br><span class="line">	ans -= c2[rt1] * c2[rt2] * (cnt2 - c2[rt1] - c2[rt2]);</span><br><span class="line">	ans -= c2[rt1] * c2[rt2] * (cnt1 - c1[rt1] - c1[rt2]);</span><br><span class="line">	ans -= c1[rt1] * c2[rt2] * (cnt2 - c2[rt1] - c2[rt2]);</span><br><span class="line">	ans -= c2[rt1] * c1[rt2] * (cnt2 - c2[rt1] - c2[rt2]);</span><br><span class="line">	fa[rt1] = rt2;</span><br><span class="line">	c1[rt2] += c1[rt1], c2[rt2] += c2[rt1];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		cnt1 = cnt2 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> x; <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">			fa[i] = i;</span><br><span class="line">			<span class="keyword">if</span> (x == <span class="number">1</span>)	c1[i] = <span class="number">1</span>, c2[i] = <span class="number">0</span>, cnt1++;</span><br><span class="line">			<span class="keyword">else</span> c1[i] = <span class="number">0</span>, c2[i] = <span class="number">1</span>, cnt2++;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = cnt2 * (cnt2 - <span class="number">1</span>) * (cnt2 - <span class="number">2</span>) / <span class="number">6</span> + cnt2 * (cnt2 - <span class="number">1</span>) * cnt1 / <span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans % mod &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> u, v; <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">			join(u, v);</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; ans % mod &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -204,14 +202,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/29/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1009-Parentheses-Matching-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/07/30/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1005-Little-W-and-Contest-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" rel="tag">组合数学</a></li></ul>
 
 
     </footer>
@@ -222,19 +220,19 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/07/30/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1005-Little-W-and-Contest-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/07/30/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%9B%9B%E5%9C%BA-1005-Equal-Sentences-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            杭电多校第三场 1005 Little W and Contest 题解
+            杭电多校第四场 1005 Equal Sentences 题解
           
         </div>
       </a>
     
     
-      <a href="/2020/07/29/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1004-Tokitsukaze-and-Multiple-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/07/29/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%89%E5%9C%BA-1009-Parentheses-Matching-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">杭电多校第三场 1004 Tokitsukaze and Multiple 题解</div>
+        <div class="article-nav-title">杭电多校第三场 1009 Parentheses Matching 题解</div>
       </a>
     
   </nav>
