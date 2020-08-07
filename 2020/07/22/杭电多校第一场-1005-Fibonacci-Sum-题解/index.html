@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
 <p>对此可以进行二项式展开。</p>
 <p>过程同上面那个大佬博客中的二项式展开类似。</p>
 <p>就是从n变成了cn。</p>
-<p>$\large (A-B)^k = C_k^0A^k + C_k^1A^{k-1}B^1 + \cdots + C_k^iA^{k-i}B^i + \cdots +C_k^kB^k (n \in N^*)$</p>
+<p>$\large (A-B)^k = C_k^0A^k - C_k^1A^{k-1}B^1 + \cdots + (-1)^iC_k^iA^{k-i}B^i + \cdots +(-1)^kC_k^kB^k (n \in N^*)$</p>
 <p>这样，对于不同的斐波那契项，相同位置的二次项展开数，构成了一个等比数列。</p>
 <p>对于每一项来说，公比$\large q=a^{c(k-i)}b^{ci}$。</p>
 <p>其前n项和公式为<br>$$<br>\large S_n=\frac{(-1)^i·c_k^i·a^{c(k-i)}·b^{ci}·(1-a^{cn(k-i)}·b^{cni})}{1-a^{c(k-i)}b^{ci}}<br>$$<br> 接着只需要从0枚举到k，把每项用求和公式求出来相加即可。</p>
