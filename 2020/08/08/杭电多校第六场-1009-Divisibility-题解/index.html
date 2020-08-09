@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    杭电多校第六场 1001 Road To The 3rd Building 题解 |  Dream
+    杭电多校第六场 1009 Divisibility 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-杭电多校第六场-1001-Road-To-The-3rd-Building-题解" class="article article-type-post" itemscope
+  <article id="post-杭电多校第六场-1009-Divisibility-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  杭电多校第六场 1001 Road To The 3rd Building 题解
+  杭电多校第六场 1009 Divisibility 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1001-Road-To-The-3rd-Building-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-08-08T10:00:32.761Z" itemprop="datePublished">2020-08-08</time>
+      <a href="/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1009-Divisibility-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-08-08T12:52:50.735Z" itemprop="datePublished">2020-08-08</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">681</span>
+            <span class="post-count">514</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -116,24 +116,25 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6827" target="_blank" rel="noopener">题目大意</a></h3><p>输入n个可爱值，在1到n中任取起点和终点，定义可爱水平为起点到终点每个点的可爱值之和除以区间长度，随机选择一种方案，求可爱水平的期望值。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6835" target="_blank" rel="noopener">题目大意</a></h3><p>给你两个数，b和x，问在b进制下，将任意一个数y的每一位不断加起来，直到只有一位，问是否满足这一位数能被x整除，则y被x整除，否则则不能整除的理论。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>真的不会写。。太难了。</p>
-<p>看了几个题解，要么就是看不懂，要么就是没讲解。我太难了。。</p>
-<p>最后终于找到了一个看懂了的题解，不容易啊。</p>
-<p>首先，方案数为1到n的等差数列，和为$\Large \frac{n(n+1)}{2}$。</p>
-<p>拿样例举例（咋样例都这么臭。。</p>
-<blockquote>
-<p>对于:  1 1 4 5 1 4每个点的出现次数<br>len=1:1 1 1 1 1 1<br>len=2:1 2 2 2 2 1<br>len=3:1 2 3 3 2 1<br>−−−−−−−−−−−−−−<br>len=4:1 2 3 3 2 1<br>len=5:1 2 2 2 2 1<br>len=6:1 1 1 1 1 1</p>
-</blockquote>
-<p>设$ans[i]$为长度为i的贡献，$sum[i]$为前缀和数组。</p>
-<p>可以得出，前一半$ans[i]=ans[i-1]+sum[n-i+1]-sum[i-1]$。</p>
-<p>后一半$ans[i]=ans[i-1]+sum[i]-sum[n-i]$。</p>
-<p>初始化$ans[1]=ans[n]=sum[n]$。</p>
-<p>如果n是偶数，单独考虑$\Large \frac{n}{2}+1$即可。</p>
-<p>注意，在递推的时候，取余的时候需要加一个mod，虽然我知道是为了防止出现负数，但是我不知道为啥会出现负数。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>, maxn = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line">ll sum[maxn], ans[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    a %= mod;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)    ans = (ans * a % mod) % mod;</span><br><span class="line">        a = (a * a) % mod, b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        ll n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;sum[i]);</span><br><span class="line">            sum[i] = (sum[i] + sum[i - <span class="number">1</span>]) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            ans[<span class="number">1</span>] = sum[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n / <span class="number">2</span>; i++)    ans[i] = (ans[i - <span class="number">1</span>] + sum[n - i + <span class="number">1</span>] - sum[i - <span class="number">1</span>] + mod) % mod;</span><br><span class="line">            ans[n / <span class="number">2</span> + <span class="number">1</span>] = (ans[n / <span class="number">2</span>] + sum[n / <span class="number">2</span> + <span class="number">1</span>] - sum[n / <span class="number">2</span>]) % mod;</span><br><span class="line">            ans[n] = sum[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; n / <span class="number">2</span> + <span class="number">1</span>; i--)    ans[i] = (ans[i + <span class="number">1</span>] + sum[i] - sum[n - i] + mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            ans[<span class="number">1</span>] = sum[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n / <span class="number">2</span>; i++)    ans[i] = (ans[i - <span class="number">1</span>] + sum[n - i + <span class="number">1</span>] - sum[i - <span class="number">1</span>] + mod) % mod;</span><br><span class="line">            ans[n] = sum[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; n / <span class="number">2</span>; i--)    ans[i] = (ans[i + <span class="number">1</span>] + sum[i] - sum[n - i] + mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        ll res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)    res = (res + (ans[i] * qpow(i, mod - <span class="number">2</span>)) % mod) % mod;</span><br><span class="line">        res = ((res * <span class="number">2</span>) % mod * qpow(n * (n + <span class="number">1</span>), mod - <span class="number">2</span>) % mod) % mod;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>其实这个也不算难证，比赛的时候脑抽了，卡了好久。。</p>
+<p>证明就懒得证了，直接上官方题解吧。</p>
+<p>（证的又详细还比我好。。</p>
+<p>原命题等价于：对于任意的 $b$ 进制正整数 $y = \overline{c_1 c_2 \cdots c_n}$，如果 $c_1 + c_2 + \cdots + c_n \equiv 0 \pmod{x}$，那么 $y \equiv 0 \pmod{x}$，否则 $y \not\equiv 0 \pmod{x}$。</p>
+<p>上述命题成立当且仅当 $b \equiv 1 \pmod{x}$。</p>
+<p>证明：</p>
+<ul>
+<li>当 $b \equiv 1 \pmod{x}$ 时，有 $y \equiv c_1 b^{n-1} + c_2 b^{n-2} + \cdots + c_n b^0 \equiv c_1 + c_2 + \cdots + c_n \pmod{x}$，于是上述命题成立。</li>
+<li>当 $b \not\equiv 1 \pmod{x}$ 时，假设上述命题成立，有：<ul>
+<li>若 $x \leq b$，令 $y = 1 \cdot b^1 + (x-1) b^0$，则应有 $y \equiv b + x - 1 \equiv 0 \pmod{x}$，即 $b \equiv 1 \pmod{x}$，但此时 $b \not\equiv 1 \pmod{x}$，出现矛盾，于是上述命题不成立。</li>
+<li>若 $x &gt; b$，令 $y = x = \overline{c_1 c_2 \cdots c_n}$，显然 $c_1 + c_2 + \cdots + c_n \not\equiv 0 \pmod{x}$，于是 $y \not\equiv 0 \pmod{x}$，但 $y \equiv 0 \pmod{x}$，出现矛盾，于是上述命题不成立。</li>
+</ul>
+</li>
+</ul>
+<p>综上，上述命题成立当且仅当 $b \equiv 1 \pmod{x}$。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">slove</span><span class="params">(ll a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &lt; <span class="number">10</span>)    <span class="keyword">return</span> a;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (a) &#123;</span><br><span class="line">        ans += a % <span class="number">10</span>, a /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    slove(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        ll n;</span><br><span class="line">        ll x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span> ((n<span class="number">-1</span>)%x==<span class="number">0</span>)    <span class="built_in">cout</span> &lt;&lt; <span class="string">"T"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"F"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -199,14 +200,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1001-Road-To-The-3rd-Building-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1009-Divisibility-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%84%E5%BE%8B/" rel="tag">规律</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
 
 
     </footer>
@@ -217,19 +218,19 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1009-Divisibility-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/08/09/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1006-A-Very-Easy-Graph-Problem-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            杭电多校第六场 1009 Divisibility 题解
+            杭电多校第六场 1006 A Very Easy Graph Problem 题解
           
         </div>
       </a>
     
     
-      <a href="/2020/08/07/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%BA%94%E5%9C%BA-1012-Set1-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/08/08/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%85%AD%E5%9C%BA-1001-Road-To-The-3rd-Building-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">杭电多校第五场 1012 Set1 题解</div>
+        <div class="article-nav-title">杭电多校第六场 1001 Road To The 3rd Building 题解</div>
       </a>
     
   </nav>
