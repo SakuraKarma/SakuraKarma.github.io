@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    杭电多校第九场 1003 Slime and Stones 题解 |  Dream
+    题目大意 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-杭电多校第九场-1003-Slime-and-Stones-题解" class="article article-type-post" itemscope
+  <article id="post-题目大意" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  杭电多校第九场 1003 Slime and Stones 题解
+  题目大意
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/08/19/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B9%9D%E5%9C%BA-1003-Slime-and-Stones-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-08-19T08:18:44.823Z" itemprop="datePublished">2020-08-19</time>
+      <a href="/2020/08/24/%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F/" class="article-date">
+  <time datetime="2020-08-24T05:04:40.175Z" itemprop="datePublished">2020-08-24</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">393</span>
+            <span class="post-count">580</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -116,17 +116,24 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6869" target="_blank" rel="noopener">题目大意</a></h3><p>有两堆石头，每个人每回合可以在任意一堆取任意个或者从第一堆取x个，第二堆取y个，$|x-y|\leq k$，每人采取最佳策略，问先手是否必胜。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6879" target="_blank" rel="noopener">题目大意</a></h3><p>给你一个数字s，求出满足地图上所有数字和为s的扫雷地图。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题目就是扩展威佐夫博弈。</p>
-<p>听都没听过。。</p>
-<p>威佐夫博弈点<a href="https://zhuanlan.zhihu.com/p/149621032" target="_blank" rel="noopener">这里</a>。</p>
-<p>威佐夫博弈就是这个题目k为0的情况。</p>
-<p>当k不等于0的时候，可以得到式子，详解见这个<a href="https://blog.csdn.net/qq_43814654/article/details/108086427" target="_blank" rel="noopener">博客</a>。</p>
-<p>懒得推了（其实是不会。。</p>
-<p>得到正解之后的式子之后，二分b，如果没找到，则说明不在数列中，必赢，如果找到了，如果a也满足，则必输，否则必赢。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line">ll a, b, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    k++;</span><br><span class="line">    ll l, r;</span><br><span class="line">    l = <span class="number">0</span>, r = <span class="number">1e8</span> + <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        ll mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        ll tmp = mid * ((<span class="built_in">sqrt</span>((k - <span class="number">2</span>) * (k - <span class="number">2</span>) + <span class="number">4</span> * k) - k + <span class="number">2</span>) / <span class="number">2</span>) + k * mid;</span><br><span class="line">        <span class="keyword">if</span> (tmp &gt; b)    r = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (tmp &lt; b)    l = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span>  a == (ll)(mid * ((<span class="built_in">sqrt</span>((k - <span class="number">2</span>) * (k - <span class="number">2</span>) + <span class="number">4</span> * k) - k + <span class="number">2</span>) / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; k;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) swap(a, b);</span><br><span class="line">        <span class="keyword">int</span> ans = solve();</span><br><span class="line">        <span class="keyword">if</span> (ans == <span class="number">-1</span> || !ans)    <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个应该算是签到题吧。</p>
+<p>想到了应该挺简单的。</p>
+<p>这个构造还不算难。</p>
+<p>如果$s\leq 24$，只需要构造出一条“$.X$”，满足长度为s+1。</p>
+<p>如果$s&gt;24$，可以表示成$8a+3b$，首先，一个单独的X，可以提供8点，在第一行放下连续的X，每个可以提供3点，接下来对余数分析。</p>
+<p>如果余数为1，4，7，可以表示成$b+=last/3+3,a–$。</p>
+<p>可以减去一个8，加上一个9。</p>
+<p>如果余数为2，5，可以表示成$b+=last/3+6,a-=2$。</p>
+<p>可以减去一个16，加上一个18。</p>
+<p>如果余数为3，6，可以表示成$b+=last/3$。</p>
+<p>所以所有情况都是满足的，不存在不满足的情况。</p>
+<p>第一行输出b个连续X，后面输出a个单独的X即可。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">char</span> Map[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="keyword">int</span> s; <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		<span class="keyword">if</span> (s &lt;= <span class="number">24</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">			s++;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">' '</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">while</span> (s--) &#123;</span><br><span class="line">				<span class="keyword">if</span> (flag == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">'.'</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">'X'</span>;</span><br><span class="line">				flag *= <span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> a = s / <span class="number">8</span>, last = s % <span class="number">8</span>, b = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span> (last == <span class="number">1</span> || last == <span class="number">4</span> || last == <span class="number">7</span>)    b += last / <span class="number">3</span> + <span class="number">3</span>, a--;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (last == <span class="number">2</span> || last == <span class="number">5</span>)    b += last / <span class="number">3</span> + <span class="number">6</span>, a -= <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">else</span>   b += last / <span class="number">3</span>;</span><br><span class="line">			<span class="keyword">int</span> i;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">25</span>; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (b)	Map[<span class="number">1</span>][i] = <span class="string">'X'</span>,b--;</span><br><span class="line">				<span class="keyword">else</span> Map[<span class="number">1</span>][i] = <span class="string">'.'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= <span class="number">25</span> &amp;&amp; a; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">25</span>; j++) &#123;</span><br><span class="line">						<span class="keyword">if</span> (j &amp; <span class="number">1</span> || !a)	Map[i][j] = <span class="string">'.'</span>;</span><br><span class="line">						<span class="keyword">else</span> <span class="keyword">if</span> ((j &amp; <span class="number">1</span>) == <span class="number">0</span> &amp;&amp; a)	Map[i][j] = <span class="string">'X'</span>, a--;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">25</span>; j++)	Map[i][j] = <span class="string">'.'</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">25</span>; j++)	Map[i][j] = <span class="string">'.'</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> &lt;&lt; <span class="number">25</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> g = <span class="number">1</span>; g &lt;= i; g++) &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">25</span>; j++)	<span class="built_in">cout</span> &lt;&lt; Map[g][j];</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -192,14 +199,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/19/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B9%9D%E5%9C%BA-1003-Slime-and-Stones-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/24/%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88/" rel="tag">博弈</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li></ul>
 
 
     </footer>
@@ -210,19 +217,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
+    
       <a href="/2020/08/23/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%8D%81%E5%9C%BA-1004-Permutation-Counting-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            杭电多校第十场 1004 Permutation Counting 题解
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/08/19/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B9%9D%E5%9C%BA-1001-Tree-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">杭电多校第九场 1001 Tree 题解</div>
+        <div class="article-nav-title">杭电多校第十场 1004 Permutation Counting 题解</div>
       </a>
     
   </nav>
