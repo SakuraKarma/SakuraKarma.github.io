@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    牛客七夕 B 王母娘娘又双叒叕来难为茶山牛了 题解 |  Dream
+    福州大学第十七届程序设计大赛 1003 棋盘 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-牛客七夕-B-王母娘娘又双叒叕来难为茶山牛了-题解" class="article article-type-post" itemscope
+  <article id="post-福州大学第十七届程序设计大赛-1003-棋盘-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  牛客七夕 B 王母娘娘又双叒叕来难为茶山牛了 题解
+  福州大学第十七届程序设计大赛 1003 棋盘 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/08/26/%E7%89%9B%E5%AE%A2%E4%B8%83%E5%A4%95-B-%E7%8E%8B%E6%AF%8D%E5%A8%98%E5%A8%98%E5%8F%88%E5%8F%8C%E5%8F%92%E5%8F%95%E6%9D%A5%E9%9A%BE%E4%B8%BA%E8%8C%B6%E5%B1%B1%E7%89%9B%E4%BA%86-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-08-26T01:50:26.145Z" itemprop="datePublished">2020-08-26</time>
+      <a href="/2020/08/26/%E7%A6%8F%E5%B7%9E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E5%8D%81%E4%B8%83%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B-1003-%E6%A3%8B%E7%9B%98-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-08-26T10:25:32.394Z" itemprop="datePublished">2020-08-26</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">441</span>
+            <span class="post-count">572</span>
         </span>
     </span>
 
@@ -116,21 +116,23 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="https://ac.nowcoder.com/acm/contest/7009/B" target="_blank" rel="noopener">题目大意</a></h3><p>给你n和m，求$(n!!!)% m$。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.fzu.edu.cn/problem.php?pid=2319" target="_blank" rel="noopener">题目大意</a></h3><p>给你$n\times m $，现在任意挖走两个位置，剩下的需要你用$1\times 2$或者$2\times 1$的方块填满，求满足这个条件的挖法有多少种。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>昨天七夕玩了一天，回家都累死了。</p>
-<p>晚上就简单的看了看，wa了几次，就没写了。</p>
-<p>后来仔细想了想，发现思路没错，最后忘求阶乘了。</p>
-<p>太丢人了。。</p>
-<p>首先我们可以把$(n!!)$看做$t$，就变成了$t!% m$。</p>
-<p>如果$t\ge m$，那么答案必定是0。</p>
-<p>所以我们只需要计算前两次，判断会不会大于等于m，注意，可能会爆ll，所以，还需要考虑溢出为负数的情况。</p>
-<p>如果大于等于m，就输出0。</p>
-<p>否则，最后计算$(t!)% m$即可。</p>
-<p>补充：看了题解之后，才发现这个题目有更简单的方法，$0!!!=1,1!!!=1,2!!!=2,3!!=720,4!!&gt;1e9$，大于3之后就必定是0了，其他情况就自己算即可。</p>
-<p>（更丢人了。。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("D:\\测试用\\in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">//freopen("D:\\测试用\\out.txt", "w+", stdout);</span></span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n,m; <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        ll ans = n,g = n;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>||n==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="number">1</span>%m&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = ans <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">                <span class="keyword">if</span>(ans&lt;<span class="number">0</span>||ans&gt;=m)&#123;</span><br><span class="line">                    flag = <span class="number">1</span>;<span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                ans*=tmp--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag)    <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)    <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = ans - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">                ans%=m;</span><br><span class="line">                ans*=tmp--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;ans%m&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们假设是这样一个棋盘。</p>
+<p><img src="https://ae01.alicdn.com/kf/Had79c51b65d84fd98d28d04059bc7a428.jpg" alt=""></p>
+<p>总共是有$n\times m$个格子。</p>
+<p>假如$n\times m$为奇数，则所有情况都不可能实现，因为你每次都会需要填两个，而剩下的是奇数个。</p>
+<p>如果$n\times m$为偶数，则答案为黑块选择情况乘上白块选择情况，即$\Large \frac{(n\times m)}{2}\times \frac {(n\times m)}{2}$。</p>
+<p>因为黑块和白块的数量是相同的，所以只能选择一个黑块一个白块。</p>
+<p>我们把这两个任意选择的黑块和白块当做一个矩形的对角。</p>
+<p>很显然，除了这个矩形之外的地方是可以填满的。</p>
+<p>那么对这个矩形进行分析，易知，这个矩形的边长一定是一个奇数，一个偶数，减去两个之后，会变成一个偶数，一个奇数。</p>
+<p>可以将偶数的边填满，这样中间就只剩下一个边长减了2的矩形了，很明显，这个矩形是一定能被填满的。</p>
+<p>所以答案为$\Large \frac{(n\times m)}{2}\times \frac {(n\times m)}{2}$。</p>
+<p>需要注意只有一行（列）的情况，枚举所有的黑块，答案为黑块右边的白块数量。</p>
+<p>（福州大学的这个OJ是真的菜，跑的时间巨长，且不支持万能头，连unordered_map都不能用。。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">char</span> Map[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((n * m) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span> || m == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> t = <span class="built_in">max</span>(n, m);</span><br><span class="line">			<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; i+=<span class="number">2</span>)	ans += (t - i + <span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; (n * m / <span class="number">2</span>) * (n * m / <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -196,7 +198,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/26/%E7%89%9B%E5%AE%A2%E4%B8%83%E5%A4%95-B-%E7%8E%8B%E6%AF%8D%E5%A8%98%E5%A8%98%E5%8F%88%E5%8F%8C%E5%8F%92%E5%8F%95%E6%9D%A5%E9%9A%BE%E4%B8%BA%E8%8C%B6%E5%B1%B1%E7%89%9B%E4%BA%86-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/26/%E7%A6%8F%E5%B7%9E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E5%8D%81%E4%B8%83%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B-1003-%E6%A3%8B%E7%9B%98-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -214,19 +216,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/08/26/%E7%A6%8F%E5%B7%9E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E5%8D%81%E4%B8%83%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B-1003-%E6%A3%8B%E7%9B%98-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            福州大学第十七届程序设计大赛 1003 棋盘 题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/08/25/%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E5%8D%81%E5%9C%BA-1011-Task-Scheduler-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/08/26/%E7%89%9B%E5%AE%A2%E4%B8%83%E5%A4%95-B-%E7%8E%8B%E6%AF%8D%E5%A8%98%E5%A8%98%E5%8F%88%E5%8F%8C%E5%8F%92%E5%8F%95%E6%9D%A5%E9%9A%BE%E4%B8%BA%E8%8C%B6%E5%B1%B1%E7%89%9B%E4%BA%86-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">杭电多校第十场 1011 Task Scheduler 题解</div>
+        <div class="article-nav-title">牛客七夕 B 王母娘娘又双叒叕来难为茶山牛了 题解</div>
       </a>
     
   </nav>
