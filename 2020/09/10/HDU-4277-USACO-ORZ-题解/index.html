@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    HDU-6608 Fansblog 题解 |  Dream
+    HDU-4277 USACO ORZ 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-HDU-6608-Fansblog-题解" class="article article-type-post" itemscope
+  <article id="post-HDU-4277-USACO-ORZ-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  HDU-6608 Fansblog 题解
+  HDU-4277 USACO ORZ 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/08/31/HDU-6608-Fansblog-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-08-31T07:06:32.400Z" itemprop="datePublished">2020-08-31</time>
+      <a href="/2020/09/10/HDU-4277-USACO-ORZ-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-09-10T08:59:34.112Z" itemprop="datePublished">2020-09-10</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">492</span>
+            <span class="post-count">418</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -116,20 +116,21 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6608" target="_blank" rel="noopener">题目大意</a></h3><p>给你一个质数p，求出小于p的最大质数n，求n的阶乘模p。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4277" target="_blank" rel="noopener">题目大意</a></h3><p>给你n条边，求将这些边用完的情况下，能组成多少个不同的三角形。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>纯纯粹粹的数论题。</p>
-<p>由威尔逊定理得，当p为质数时，$(p-2)!=1$。</p>
-<p>所以答案为$\Large \prod_{N+1}^{p+2} inv(i)$。</p>
-<p>质数分布密度：素数分布越来越稀疏，但1e18内任意两个质数的差不会很大，好像有个人证明了不会超过246。</p>
-<p>参考论文：<a href="http://www.docin.com/p-775822584.html" target="_blank" rel="noopener">http://www.docin.com/p-775822584.html</a></p>
-<p>所以直接枚举判断即可。</p>
-<p>但是需要判断的数太大了，所以需要用Miller-Rabin素数检测算法。</p>
-<p>不懂的戳<a href="https://blog.csdn.net/forever_dreams/article/details/82314237" target="_blank" rel="noopener">这里</a>。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qmul</span><span class="params">(ll a,ll b,ll mod)</span> </span>&#123;</span><br><span class="line">	ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b &amp; <span class="number">1</span>)	ans = (ans + a) % mod;</span><br><span class="line">		a = (a + a) % mod, b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b, ll mod)</span> </span>&#123;</span><br><span class="line">	ll ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b &amp; <span class="number">1</span>)	ans = qmul(ans,a,mod);</span><br><span class="line">		a = qmul(a,a,mod), b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(ll num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (num == <span class="number">2</span>)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">2</span> || !(num &amp; <span class="number">1</span>))	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	ll s, t;</span><br><span class="line">	<span class="keyword">for</span> (s = <span class="number">0</span>, t = num - <span class="number">1</span>; !(t &amp; <span class="number">1</span>); s++, t &gt;&gt;= <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">		ll a = rand() % (num - <span class="number">1</span>) + <span class="number">1</span>, k = qpow(a, t, num);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= s; j++) &#123;</span><br><span class="line">			ll tmp = qmul(k, k, num);</span><br><span class="line">			<span class="keyword">if</span> (tmp == <span class="number">1</span> &amp;&amp; k != <span class="number">1</span> &amp;&amp; k != num - <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			k = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (k != <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//freopen("D:\\测试用\\in.txt", "r", stdin);</span></span><br><span class="line">    <span class="comment">//freopen("D:\\测试用\\out.txt", "w+", stdout);</span></span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		ll num, t; <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">		t = num - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (!check(t))	t--;</span><br><span class="line">		ll ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (ll i = t + <span class="number">1</span>; i &lt;= num - <span class="number">2</span>; i++)	ans = qmul(ans,qpow(i,num<span class="number">-2</span>,num),num);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>刚开始还觉得挺简单的。</p>
+<p>就一个暴力dfs加set去重。</p>
+<p>但是直接TLE了，后面加了剪枝还在T。。</p>
+<p>因为不怎么会用自定义类型的set，所以就用了string来去重。</p>
+<p>结果看了题解，发现就是这里导致的T。</p>
+<p>（string太慢了。。</p>
+<p>然后就在想，怎么让他去重。</p>
+<p>卡了我好久。</p>
+<p>还好这里的边长度不大，所以只需要用一个类字符串的形式来去重。</p>
+<p>剪枝的话，因为最大值是不能大于等于三边总和的2/3的，所以按照这个条件来剪枝。</p>
+<p>在去重的时候，还需要三条边按照升序或者降序来去重，不然答案会重复。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">20</span>], n, sum;</span><br><span class="line"><span class="built_in">set</span>&lt;ll&gt;s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span> cnt)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">max</span>(<span class="built_in">max</span>(a,b),c)*<span class="number">2</span>&gt;=sum)	<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span> (cnt == n ) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a &gt; b || a &gt; c || b &gt; c ) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (a + b &gt; c &amp;&amp; a + c &gt; b &amp;&amp; b + c &gt; a) &#123;</span><br><span class="line">			ll ans = (((a * <span class="number">10000</span>) + b) * <span class="number">10000</span>) + c;</span><br><span class="line">			s.insert(ans);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(a + num[cnt], b, c, cnt + <span class="number">1</span>);</span><br><span class="line">	dfs(a, b + num[cnt], c, cnt + <span class="number">1</span>);</span><br><span class="line">	dfs(a, b, c + num[cnt], cnt + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		sum = <span class="number">0</span>;</span><br><span class="line">		s.<span class="built_in">clear</span>();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)	<span class="built_in">cin</span> &gt;&gt; num[i], sum += num[i];</span><br><span class="line">		dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s.<span class="built_in">size</span>() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -195,14 +196,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/08/31/HDU-6608-Fansblog-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/09/10/HDU-4277-USACO-ORZ-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%AA%E6%9E%9D/" rel="tag">剪枝</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%BB%E9%87%8D/" rel="tag">去重</a></li></ul>
 
 
     </footer>
@@ -213,19 +214,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/09/10/HDU-4277-USACO-ORZ-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            HDU-4277 USACO ORZ 题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/08/31/HDU-2054-A-==-B--%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/08/31/HDU-6608-Fansblog-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">HDU-2054 A == B ? 题解</div>
+        <div class="article-nav-title">HDU-6608 Fansblog 题解</div>
       </a>
     
   </nav>
