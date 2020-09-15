@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    HDU-1722 Cake 题解 |  Dream
+    CF-706C Hard problem 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-HDU-1722-Cake-题解" class="article article-type-post" itemscope
+  <article id="post-CF-706C-Hard-problem-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  HDU-1722 Cake 题解
+  CF-706C Hard problem 题解
 </h1>
  
 
@@ -67,8 +67,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/09/15/HDU-1722-Cake-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-09-15T05:36:08.482Z" itemprop="datePublished">2020-09-15</time>
+      <a href="/2020/09/15/CF-706C-Hard-problem-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-09-15T12:51:08.374Z" itemprop="datePublished">2020-09-15</time>
 </a>
       
   <div class="article-category">
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">320</span>
+            <span class="post-count">469</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -116,25 +116,18 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1722" target="_blank" rel="noopener">题目大意</a></h3><p>有一块蛋糕，可能要分给q个人或者p个人，问最少该切成多少块（不一定要相等大小），才能保证两者都可以分配。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="https://codeforces.com/problemset/problem/706/C" target="_blank" rel="noopener">题目大意</a></h3><p>给你n个字符串，每个字符串可以反转，反转需要$c_i$的花费，求使这n个字符串呈升序所花费的最小花费。</p>
 <a id="more"></a>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>丢人啊。。</p>
-<p>这还是新生的题目，新生都是一遍过的。。</p>
-<p>我卡了好久。</p>
-<p>自闭了。</p>
-<p>其实想到了就很简单。</p>
-<p>首先分成q块需要以圆心为中心切q刀，分成p块需要切p刀，但是他们中会有重复的刀不需要切。</p>
-<p>所以答案就是$p+q-gcd(p,q)$。</p>
-<p>至于为啥是gcd(p,q)，我稍微的证明了一下，不严谨。</p>
-<p>设c=gcd(p,q)。</p>
-<p>那么以第一刀开始，每次切的角度是$\Large \frac{2π}{\Large \frac{p}{n}}$。</p>
-<p>同理，第二种是$\Large \frac{2π}{\Large \frac{q}{n}}$。</p>
-<p>让两者相等，可以得到$\Large \frac{p}{q}=\frac{n_1}{n_2}$。</p>
-<p>显然$p=c\times k_1,q=c \times k_2$。</p>
-<p>所以有$\Large \frac{k_1}{k_2}=\frac{n_1}{n_2}$。</p>
-<p>在满足这个条件下，右边是可以乘上1~n的，所以重复的就是gcd。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !b ? a : gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> p, q;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; p &gt;&gt; q) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p+q-gcd(p,q) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>刚开始没想到是dp。</p>
+<p>后面想到了倒是很简单写完了。</p>
+<p>发现wa在了61。。</p>
+<p>后面卡了好久，去cf看了看样例。</p>
+<p>发现有个判断没判断到。</p>
+<p>吐了。。</p>
+<p>发现还是自己的思维不够全面。</p>
+<p>因为有可能前面那一项需要反转，但是你只能比前一项不反转大，这个时候是不行的。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF = <span class="number">1e18</span>;</span><br><span class="line"><span class="built_in">string</span> s[N], f[N];</span><br><span class="line">ll cost[N];</span><br><span class="line">ll dp[N][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="built_in">cin</span> &gt;&gt; cost[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">		dp[i][<span class="number">1</span>] = dp[i][<span class="number">0</span>] = INF;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = s[i].length() - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)	f[i] += s[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">	dp[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; dp[<span class="number">1</span>][<span class="number">1</span>] = cost[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">max</span>(s[i], f[i]) &lt; <span class="built_in">min</span>(s[i - <span class="number">1</span>], f[i - <span class="number">1</span>])) &#123;<span class="comment">//就是这个判断</span></span><br><span class="line">			flag = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[i] &gt;= s[i - <span class="number">1</span>])	dp[i][<span class="number">0</span>] = <span class="built_in">min</span>(dp[i][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">if</span> (s[i] &gt;= f[i - <span class="number">1</span>])	dp[i][<span class="number">0</span>] = <span class="built_in">min</span>(dp[i][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">		<span class="keyword">if</span> (f[i] &gt;= s[i - <span class="number">1</span>])	dp[i][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][<span class="number">1</span>], dp[i - <span class="number">1</span>][<span class="number">0</span>] + cost[i]);</span><br><span class="line">		<span class="keyword">if</span> (f[i] &gt;= f[i - <span class="number">1</span>])	dp[i][<span class="number">1</span>] = <span class="built_in">min</span>(dp[i][<span class="number">1</span>], dp[i - <span class="number">1</span>][<span class="number">1</span>] + cost[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">min</span>(dp[n][<span class="number">0</span>], dp[n][<span class="number">1</span>]) != INF)	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">min</span>(dp[n][<span class="number">0</span>], dp[n][<span class="number">1</span>]) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -200,14 +193,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/09/15/HDU-1722-Cake-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/09/15/CF-706C-Hard-problem-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcd/" rel="tag">gcd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
 
 
     </footer>
@@ -218,19 +211,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/09/15/CF-706C-Hard-problem-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            CF-706C Hard problem 题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/09/10/HDU-4277-USACO-ORZ-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/09/15/HDU-1722-Cake-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">HDU-4277 USACO ORZ 题解</div>
+        <div class="article-nav-title">HDU-1722 Cake 题解</div>
       </a>
     
   </nav>
