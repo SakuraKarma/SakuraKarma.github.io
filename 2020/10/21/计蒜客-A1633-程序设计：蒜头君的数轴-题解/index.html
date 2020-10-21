@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    lower_bound和upper_bound的使用方法 |  Dream
+    计蒜客-A1633 程序设计：蒜头君的数轴 题解 |  Dream
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-lower_bound和upper_bound的使用方法" class="article article-type-post" itemscope
+  <article id="post-计蒜客-A1633-程序设计：蒜头君的数轴-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  lower_bound和upper_bound的使用方法
+  计蒜客-A1633 程序设计：蒜头君的数轴 题解
 </h1>
  
 
@@ -67,12 +67,12 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/10/18/lower_bound%E5%92%8Cupper_bound%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2020-10-18T03:34:48.728Z" itemprop="datePublished">2020-10-18</time>
+      <a href="/2020/10/21/%E8%AE%A1%E8%92%9C%E5%AE%A2-A1633-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%92%9C%E5%A4%B4%E5%90%9B%E7%9A%84%E6%95%B0%E8%BD%B4-%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2020-10-21T11:24:28.927Z" itemprop="datePublished">2020-10-21</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/STL/">STL</a>
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
   </div>
 
       
@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">485</span>
+            <span class="post-count">419</span>
         </span>
     </span>
 
@@ -116,23 +116,20 @@ var _hmt = _hmt || [];
       
 
       
-      <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>刚好最近在给学弟学妹讲二分，应该是我没讲明白。。</p>
-<p>还是写出来比较好。</p>
-<p>lower_bound和upper_bound的头文件都是algorithm。</p>
-<p>需要传入三个参数，数组头begin，数组尾end，以及你需要查找的数num。</p>
-<p>在使用时，需要保证数组（容器）需要有序。</p>
-<p>最好是递增的，因为递减需要重载，之前没讲清楚。。</p>
-<p>递增数组</p>
-<p>lower_bound( begin,end,num)，即在begin到end-1中查找第一个大于等于的数，并且返回该数的地址，减去begin之后，得到与begin的相对位置。</p>
-<p>upper_bound与lower_bound使用方法相同，但是查找的是第一个大于的数，不会查找等于的。</p>
-<p>递减数组</p>
-<p>lower_bound( begin,end,num,greater&lt; Type &gt;() )，即在begin到end-1中查找第一个小于等于的数，并且返回该数的地址，减去begin之后，得到与begin的相对位置。</p>
-<p>upper_bound与lower_bound使用方法相同，但是查找的是第一个小于的数，不会查找等于的。</p>
-<p>greater函数头文件是functional。</p>
-<p>注意二分的范围是begin~end-1。</p>
+      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="https://nanti.jisuanke.com/t/A1633" target="_blank" rel="noopener">题目大意</a></h3><p>一个数轴上有n个点，需要满足相邻两点的距离只能有一个不同，如果不满足，可以加点，使满足要求，求最小加点的数量。</p>
 <a id="more"></a>
 
-<h3 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> num[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(num, num + n);							         <span class="comment">//按从小到大排序 </span></span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">find</span>; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">find</span>);</span><br><span class="line">	<span class="keyword">int</span> pos1 = lower_bound(num, num + n, <span class="built_in">find</span>) - num;    <span class="comment">//返回数组中第一个大于或等于被查找的数</span></span><br><span class="line">	<span class="keyword">int</span> pos2 = upper_bound(num, num + n, <span class="built_in">find</span>) - num;    <span class="comment">//返回数组中第一个大于被查找的数</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, pos1, num[pos1]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, pos2, num[pos2]);</span><br><span class="line">	sort(num, num + <span class="number">6</span>, greater&lt;<span class="keyword">int</span>&gt;());                             <span class="comment">//按从大到小排序</span></span><br><span class="line">	<span class="keyword">int</span> pos3 = lower_bound(num, num + n, <span class="built_in">find</span>, greater&lt;<span class="keyword">int</span>&gt;()) - num;  <span class="comment">//返回数组中第一个小于或等于被查找的数 </span></span><br><span class="line">	<span class="keyword">int</span> pos4 = upper_bound(num, num + n, <span class="built_in">find</span>, greater&lt;<span class="keyword">int</span>&gt;()) - num;  <span class="comment">//返回数组中第一个小于被查找的数 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, pos3, num[pos3]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, pos4, num[pos4]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这题好难想啊。。</p>
+<p>首先需要想到n个距离相等，必然是他们累计gcd的倍数。</p>
+<p>那么只需要枚举不需要的那一条边即可。</p>
+<p>于是就可以用gcd前缀和gcd后缀来简便运算。</p>
+<p>推导公式，所需要加点的个数为$(l/gcd)-n+2$。</p>
+<p>区间中的点数为$l/gcd-1$，区间中已有的点为n-3，所以公式为$(l/gcd)-n+2$。</p>
+<p>之后特判一下起点和终点即可。</p>
+<p>注意当$n\leq 2$时，直接输出0，不然会除以0。。（蓝桥的数据还是太水了。。</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> pos[N], dis[N], pre1[N], pre2[N];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !b ? a : gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n; <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="built_in">cin</span> &gt;&gt; pos[i];</span><br><span class="line">	sort(pos + <span class="number">1</span>, pos + <span class="number">1</span> + n);</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)	dis[i] = pos[i+<span class="number">1</span>] - pos[i], sum += dis[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; i++)	pre1[i] = gcd(pre1[i - <span class="number">1</span>], dis[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--)	pre2[i] = gcd(pre2[i + <span class="number">1</span>], dis[i]);</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">2e9</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> l = sum - dis[i];</span><br><span class="line">		<span class="keyword">int</span> t;</span><br><span class="line">		<span class="keyword">if</span> (i == <span class="number">1</span>)	t = (l / pre2[<span class="number">2</span>]) - n + <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (i == n - <span class="number">1</span>) t = (l / pre1[n - <span class="number">2</span>]) - n + <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">else</span> t = (l / gcd(pre1[i - <span class="number">1</span>], pre2[i + <span class="number">1</span>])) - n + <span class="number">2</span>;</span><br><span class="line">		ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -198,14 +195,14 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/10/18/lower_bound%E5%92%8Cupper_bound%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2020/10/21/%E8%AE%A1%E8%92%9C%E5%AE%A2-A1633-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%92%9C%E5%A4%B4%E5%90%9B%E7%9A%84%E6%95%B0%E8%BD%B4-%E9%A2%98%E8%A7%A3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcd/" rel="tag">gcd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80/" rel="tag">前缀</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%BC%80/" rel="tag">后缀</a></li></ul>
 
 
     </footer>
@@ -216,19 +213,10 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/10/21/%E8%AE%A1%E8%92%9C%E5%AE%A2-A1633-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%92%9C%E5%A4%B4%E5%90%9B%E7%9A%84%E6%95%B0%E8%BD%B4-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            计蒜客-A1633 程序设计：蒜头君的数轴 题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/10/16/POJ-2785-4-Values-whose-Sum-is-0-%E9%A2%98%E8%A7%A3/" class="article-nav-link">
+      <a href="/2020/10/18/lower_bound%E5%92%8Cupper_bound%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">POJ-2785 4 Values whose Sum is 0 题解</div>
+        <div class="article-nav-title">lower_bound和upper_bound的使用方法</div>
       </a>
     
   </nav>
