@@ -84,6 +84,82 @@ var _hmt = _hmt || [];
     
     
     
+    <article id="post-KMP算法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/08/KMP%E7%AE%97%E6%B3%95/"
+    >KMP算法</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/08/KMP%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2020-07-08T12:21:18.107Z" itemprop="datePublished">2020-07-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h3><p>KMP 算法是 D.E.Knuth、J,H,Morris 和 V.R.Pratt 三位神人共同提出的，称之为 Knuth-Morria-Pratt 算法，简称 KMP 算法。该算法相对于 Brute-Force（暴力）算法有比较大的改进，主要是消除了主串指针的回溯，从而使算法效率有了某种程度的提高。</p>
+<p>使用KMP算法能够快速的找到目标串中的模式串。</p>
+<p>时间复杂度为$O(m+n)$。</p>
+      
+      <a class="article-more-link" href="/2020/07/08/KMP%E7%AE%97%E6%B3%95/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/" rel="tag">KMP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-HDU-4745-Two-Rabbits-题解" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -762,85 +838,6 @@ var _hmt = _hmt || [];
 
 </article>
     
-    <article id="post-EOJ-Monthly-2020.3-B-与矩阵-题解" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/08/EOJ-Monthly-2020.3-B-%E4%B8%8E%E7%9F%A9%E9%98%B5-%E9%A2%98%E8%A7%A3/"
-    >EOJ Monthly 2020.3 B 与矩阵 题解</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/08/EOJ-Monthly-2020.3-B-%E4%B8%8E%E7%9F%A9%E9%98%B5-%E9%A2%98%E8%A7%A3/" class="article-date">
-  <time datetime="2020-07-08T12:21:18.093Z" itemprop="datePublished">2020-07-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><a href="https://acm.ecnu.edu.cn/contest/255/problem/B/" target="_blank" rel="noopener">题目大意</a></h3><p>与矩阵是一个 n×n 的矩阵。规定矩阵中的第 i 行第 j 列记为 (i,j) 。</p>
-<p>生成一个与矩阵的方式是，先生成一个长度为 n 的数列 a1,a2,…,an−1,an ，而矩阵中 (i,j)=ai&amp;aj 。</p>
-<p>其中 &amp; 是指<a href="https://en.wikipedia.org/wiki/Bitwise_operation#AND" target="_blank" rel="noopener">按位与运算</a>，其计算方式是参与运算的两数各对应的二进位相与。只有对应的两个二进位都为 1 时，结果位才为 1 。</p>
-<p>Cuber QQ 发现，同一个与矩阵可能对应着一些不同的数列，不过 Cuber QQ 现在只想知道字典序最小的数列是什么样的。</p>
-<p>对于两个数列$a1,a2,…,an−1,an $和 $b1,b2,…,bn−1,bn$ ，如果存在一个整数$ k (1≤k≤n) $满足 $a_{k+1}&lt;b_{k+1} $且 $a1=b1,a2=b2,…,ak=bk $，我们就认为数列 $a1,a2,…,an−1,an $的字典序要小于数列 $b1,b2,…,bn−1,bn $。</p>
-<p>当然，Cuber QQ 不会这么容易让你得到答案，他会把矩阵所有的 $(i,i) (1≤i≤n) $的位置全部隐藏，只显示为 0 。</p>
-      
-      <a class="article-more-link" href="/2020/07/08/EOJ-Monthly-2020.3-B-%E4%B8%8E%E7%9F%A9%E9%98%B5-%E9%A2%98%E8%A7%A3/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
   </article>
   
 
@@ -858,7 +855,7 @@ var _hmt = _hmt || [];
     <ul class="list-inline">
       <li>
         &copy;
-        2015-2020
+        2015-2021
         sakurakarma
       </li>
       <li>
