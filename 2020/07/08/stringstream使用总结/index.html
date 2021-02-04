@@ -82,7 +82,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">306</span>
+            <span class="post-count">335</span>
         </span>
     </span>
 
@@ -129,7 +129,7 @@ var _hmt = _hmt || [];
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">double</span> b;</span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line">s=to_string(a);<span class="comment">//int转字符串</span></span><br><span class="line">s=to_string(b);<span class="keyword">double</span>转字符串</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">a=stoi(s);<span class="comment">//字符串转int</span></span><br><span class="line">b=stod(s);<span class="comment">//字符串转double</span></span><br></pre></td></tr></table></figure>
 
 <p>如果多次使用，并且使用之后stringstream不为空，记住需要清空stringstream。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> ss;</span><br><span class="line">ss.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> ss;</span><br><span class="line"><span class="comment">// 如下两部可彻底恢复ss，单独的clear是没办法清空的</span></span><br><span class="line">ss.<span class="built_in">clear</span>(); <span class="comment">// 恢复状态</span></span><br><span class="line">ss.str(<span class="string">""</span>); <span class="comment">// 恢复值</span></span><br></pre></td></tr></table></figure>
 
 <p>如果希望按照其他的字符分割，需要将读取的方式进行修改。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> data = <span class="string">"1,2,3,4,5,6"</span>;</span><br><span class="line"><span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(data)</span></span>;<span class="comment">//或者</span></span><br><span class="line">ss&lt;&lt;data;</span><br><span class="line"><span class="built_in">string</span> item;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">while</span> (getline(ss, item, <span class="string">','</span>))</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; item &lt;&lt; <span class="string">' '</span>;</span><br></pre></td></tr></table></figure>
