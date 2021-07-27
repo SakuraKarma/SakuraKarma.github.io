@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans" >
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="ACM" />
+   
+  <meta name="description" content="A ACMer" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    2021牛客暑期多校训练营2 |  Dream
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?2da3dec5a4ee966791d640da7c70edb3";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-2021牛客暑期多校训练营2" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  2021牛客暑期多校训练营2
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/07/27/2021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A52/" class="article-date">
+  <time datetime="2021-07-27T11:47:33.397Z" itemprop="datePublished">2021-07-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%94%E8%B5%9B/">比赛</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">14 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h3 id="C-Draw-Grids"><a href="#C-Draw-Grids" class="headerlink" title="C-Draw Grids"></a>C-<a href="https://ac.nowcoder.com/acm/contest/11253/C" target="_blank" rel="noopener">Draw Grids</a></h3><h4 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h4><p>给你一个$n\times m$的点阵，两个人轮流进行，可以横着连或者竖着连相邻两点，不能构成回路，问先手赢还是后手赢。</p>
+<a id="more"></a>
+
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>因为不能构成回路，所以连接的图展开就是一棵树。</p>
+<p>很明显的按照边数来确定谁赢，如果边数为奇则先手赢。</p>
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m; <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">if</span>(((n*m - <span class="number">1</span>)&amp;<span class="number">1</span>)==<span class="number">0</span>)    <span class="built_in">cout</span>&lt;&lt;<span class="string">"NO"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"YES"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="D-Er-Ba-Game"><a href="#D-Er-Ba-Game" class="headerlink" title="D-Er Ba Game"></a>D-<a href="https://ac.nowcoder.com/acm/contest/11253/D" target="_blank" rel="noopener">Er Ba Game</a></h3><h4 id="题目大意-1"><a href="#题目大意-1" class="headerlink" title="题目大意"></a>题目大意</h4><p>每个人摸两张牌，告诉你比较规则，比两个人的牌谁大。</p>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>模拟。</p>
+<h4 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="keyword">int</span> a1, b1, a2, b2;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a1 &gt;&gt; b1 &gt;&gt; a2 &gt;&gt; b2;</span><br><span class="line">		<span class="keyword">if</span> (a1 &gt; b1)	swap(a1, b1);</span><br><span class="line">		<span class="keyword">if</span> (a2 &gt; b2)	swap(a2, b2);</span><br><span class="line">		<span class="keyword">if</span> (a1 == a2 &amp;&amp; b1 == b2)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"tie"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (a1 == <span class="number">2</span> &amp;&amp; b1 == <span class="number">8</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (a2 == <span class="number">2</span> &amp;&amp; b2 == <span class="number">8</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"second"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (a1 == b1 &amp;&amp; a2 == b2) &#123;</span><br><span class="line">			<span class="keyword">if</span> (a1 &gt; a2)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"second"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (a1 == b1)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (a2 == b2)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"second"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> ((a1 + b1) % <span class="number">10</span> == (a2 + b2) % <span class="number">10</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (b1 &gt; b2)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"second"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> ((a1 + b1) % <span class="number">10</span> &gt; (a2 + b2) % <span class="number">10</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"second"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="F-Girlfriend"><a href="#F-Girlfriend" class="headerlink" title="F-Girlfriend"></a>F-<a href="https://ac.nowcoder.com/acm/contest/11253/F" target="_blank" rel="noopener">Girlfriend</a></h3><h4 id="题目大意-2"><a href="#题目大意-2" class="headerlink" title="题目大意"></a>题目大意</h4><p>给你四个点$a,b,c,d$，设两个点$p_1,p_2$以及两个参数$k_1,k_2$，满足方程$|ap_1|\ge k_1|bp_1|$以及$|cp_2|\ge k_2|dp_2|$，求$p_1$与$p_2$之间相交的体积。</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>以第一个不等式为例，设$a(x_1,y_1,z_1),b(x_2,y_2,z_2)$，带入不等式，得到$(k_1^2-1)(x^2+y^2+z^2)+(2x_1-2k_1^2x_2)x+(2y_1-2k_1^2y_2)y+(2z_1-2z_1^2z_2)z+k_1^2(x_2^2+y_2^2+z_2^2)-(x_1^2+y_1^2+z_1^2)\le 0$，可以得出轨迹是球以及球的内部空间，由圆的一般方程$x^2+y^2+z^2+Ax+By+Cz+D=0$得球心坐标为$(-\frac{A}{2},-\frac{B}{2},-\frac{C}{2})$，半径为$\frac{\sqrt {A^2+B^2+C^2-4D}}{2}$。</p>
+<p>对于两个球的情况，存在相离，相切，相交，包含几种关系，相离和相切答案为0，包含答案为半径小的球的体积。</p>
+<p>对于相交的情况，我们可以拆成两个球冠的体积之和，由球冠体积公式$V=\frac{π}{3}h^2(r-h)$可以求出相交体积。</p>
+<p>球冠如下图：</p>
+<p><img src="http://inews.gtimg.com/newsapp_ls/0/13809742867/0" alt=""></p>
+<h4 id="完整代码-2"><a href="#完整代码-2" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">double</span> x1, <span class="keyword">double</span> y1, <span class="keyword">double</span> z1, <span class="keyword">double</span> r1, <span class="keyword">double</span> x2, <span class="keyword">double</span> y2, <span class="keyword">double</span> z2, <span class="keyword">double</span> r2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> dis = <span class="built_in">sqrt</span>((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));</span><br><span class="line">	<span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (dis &gt;= r1 + r2)	ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (dis + r1 &lt;= r2)	ans = <span class="number">4</span> * PI * r1 * r1 * r1 / <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (dis + r2 &lt;= r1)	ans = <span class="number">4</span> * PI * r2 * r2 * r2 / <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">double</span> c = (r1 * r1 + dis * dis - r2 * r2) / (<span class="number">2</span> * r1 * dis);</span><br><span class="line">		<span class="keyword">double</span> d1 = r1 * c, d2 = dis - d1;</span><br><span class="line">		<span class="keyword">double</span> h1 = r1 - d1, h2 = r2 - d2;</span><br><span class="line">		ans += PI * h1 * h1 * (<span class="number">3</span> * r1 - h1) / <span class="number">3</span>;</span><br><span class="line">		ans += PI * h2 * h2 * (<span class="number">3</span> * r2 - h2) / <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t; <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="keyword">double</span> x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; z1 &gt;&gt; x2 &gt;&gt; y2 &gt;&gt; z2 &gt;&gt; x3 &gt;&gt; y3 &gt;&gt; z3 &gt;&gt; x4 &gt;&gt; y4 &gt;&gt; z4;</span><br><span class="line">		<span class="keyword">double</span> k1, k2; <span class="built_in">cin</span> &gt;&gt; k1 &gt;&gt; k2;</span><br><span class="line">		<span class="keyword">double</span> cx1, cx2, cy1, cy2, cz1, cz2, r1, r2;</span><br><span class="line">		<span class="keyword">double</span> t1 = k1 * k1 - <span class="number">1</span>, t2 = k2 * k2 - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">double</span> ca1, ca2, cb1, cb2, cc1, cc2, cd1, cd2;</span><br><span class="line">		ca1 = <span class="number">2</span> * (x1 - k1 * k1 * x2) / t1;</span><br><span class="line">		cb1 = <span class="number">2</span> * (y1 - k1 * k1 * y2) / t1;</span><br><span class="line">		cc1 = <span class="number">2</span> * (z1 - k1 * k1 * z2) / t1;</span><br><span class="line">		cd1 = k1 * k1 * (x2 * x2 + y2 * y2 + z2 * z2) - (x1 * x1 + y1 * y1 + z1 * z1);</span><br><span class="line">		cd1 /= t1;</span><br><span class="line">		cx1 = -ca1 / <span class="number">2</span>;</span><br><span class="line">		cy1 = -cb1 / <span class="number">2</span>;</span><br><span class="line">		cz1 = -cc1 / <span class="number">2</span>;</span><br><span class="line">		r1 = <span class="built_in">sqrt</span>(ca1 * ca1 + cb1 * cb1 + cc1 * cc1 - <span class="number">4</span> * cd1) / <span class="number">2</span>;</span><br><span class="line">		ca2 = <span class="number">2</span> * (x3 - k2 * k2 * x4) / t2;</span><br><span class="line">		cb2 = <span class="number">2</span> * (y3 - k2 * k2 * y4) / t2;</span><br><span class="line">		cc2 = <span class="number">2</span> * (z3 - k2 * k2 * z4) / t2;</span><br><span class="line">		cd2 = k2 * k2 * (x4 * x4 + y4 * y4 + z4 * z4) - (x3 * x3 + y3 * y3 + z3 * z3);</span><br><span class="line">		cd2 /= t2;</span><br><span class="line">		cx2 = -ca2 / <span class="number">2</span>;</span><br><span class="line">		cy2 = -cb2 / <span class="number">2</span>;</span><br><span class="line">		cz2 = -cc2 / <span class="number">2</span>;</span><br><span class="line">		r2 = <span class="built_in">sqrt</span>(ca2 * ca2 + cb2 * cb2 + cc2 * cc2 - <span class="number">4</span> * cd2) / <span class="number">2</span>;</span><br><span class="line">        solve(cx1, cy1, cz1, r1, cx2, cy2, cz2, r2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="G-League-of-Legends"><a href="#G-League-of-Legends" class="headerlink" title="G-League of Legends"></a>G-<a href="https://ac.nowcoder.com/acm/contest/11253/G" target="_blank" rel="noopener">League of Legends</a></h3><h4 id="题目大意-3"><a href="#题目大意-3" class="headerlink" title="题目大意"></a>题目大意</h4><p>有n个人，每个人有一个游玩时间$[a_i,b_i)$，你需要将这n个人分为k组，每组的游玩时间为每个人的游玩时间的共同时间，每组的游玩时间必须超过1分钟，问每组的游玩时间的最大和是多少。</p>
+<h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><p>首先，我们先把包含有其他区间的区间定义为大区间，其他的为小区间。对于大区间，他的最优情况要么是单独一组，要么是和他包含的区间一组，如果他与其他的区间一组，肯定会使自身的贡献减少。</p>
+<p>对于小区间，我们把这些区间按照左端点从小到大来排序，因为我们把大区间去掉了，所以这些区间的右端点肯定是单调不降的。对于这个性质，我们假设将两个区间i和j分为一组，那么对于这两个区间中间的区间k，他与i和j的贡献$R[k]-L[j]$和$R[i]-L[k]$，都是包含在i和j的贡献$R[i]-L[j]$当中的。</p>
+<p>我们设$dp[i][j]$为用前j个区间分i组的最大和，我们可以写出转移方程$dp[i][j]=max{dp[i-1][k]+R[k+1]-L[j]}(k&lt;j&amp;&amp;R[k]&gt;L[j])$。</p>
+<p>变形得$dp[i][j]=max{dp[i-1][k]+R[k+1]}-L<a href="k<j&&R[k]>L[j]">j</a>$。</p>
+<p>对于k来说，我们如果用枚举的形式肯定会超时，所以我们用单调队列来优化，对于每一个i，维护一个单调队列，储存$max{dp[i-1][k]+R[k+1]}$，这样能保证时间复杂度为$O(n^2)$。</p>
+<p>最后枚举一下最优解，把小区间分了剩余的组数给大区间单独一组。</p>
+<h4 id="完整代码-3"><a href="#完整代码-3" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5050</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node&amp; t) <span class="keyword">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> l &lt; t.l || (l == t.l &amp;&amp; r &gt; t.r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;area[N], s[N];</span><br><span class="line"><span class="keyword">int</span> b[N], dp[N][N], q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n, k; <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	rep(i, <span class="number">1</span>, n)	<span class="built_in">cin</span> &gt;&gt; area[i].l &gt;&gt; area[i].r;</span><br><span class="line">	sort(area + <span class="number">1</span>, area + <span class="number">1</span> + n);</span><br><span class="line">	<span class="keyword">int</span> maxr = <span class="number">1e9</span>, cnts, cntb;</span><br><span class="line">	cnts = cntb = <span class="number">0</span>;</span><br><span class="line">	per(i, n, <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (area[i].r &gt;= maxr) b[++cntb] = area[i].r - area[i].l;</span><br><span class="line">		<span class="keyword">else</span> maxr = area[i].r, s[++cnts] = area[i];</span><br><span class="line">	&#125;</span><br><span class="line">	sort(s + <span class="number">1</span>, s + <span class="number">1</span> + cnts);</span><br><span class="line">	sort(b + <span class="number">1</span>, b + <span class="number">1</span> + cntb, greater&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">	<span class="built_in">memset</span>(dp, <span class="number">-1</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">	dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	rep(i, <span class="number">1</span>, k) &#123;</span><br><span class="line">		<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">0</span>;</span><br><span class="line">		rep(j, <span class="number">1</span>, cnts) &#123;</span><br><span class="line">			<span class="keyword">if</span> (dp[i - <span class="number">1</span>][j - <span class="number">1</span>] != <span class="number">-1</span>) &#123;</span><br><span class="line">				<span class="keyword">while</span> (l &lt;= r &amp;&amp; dp[i - <span class="number">1</span>][q[r]] + s[q[r] + <span class="number">1</span>].r &lt;= dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + s[j].r)	r--;</span><br><span class="line">				q[++r] = j - <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">while</span> (l &lt;= r &amp;&amp; s[q[l] + <span class="number">1</span>].r &lt;= s[j].l)	l++;</span><br><span class="line">			<span class="keyword">if</span> (l &lt;= r)	dp[i][j] = dp[i - <span class="number">1</span>][q[l]] + s[q[l] + <span class="number">1</span>].r - s[j].l;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">	rep(i, <span class="number">0</span>, k) &#123;</span><br><span class="line">		t += b[i];</span><br><span class="line">		<span class="keyword">if</span> (dp[k - i][cnts] != <span class="number">-1</span>)	ans = <span class="built_in">max</span>(ans, t + dp[k - i][cnts]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="I-Penguins"><a href="#I-Penguins" class="headerlink" title="I-Penguins"></a>I-<a href="https://ac.nowcoder.com/acm/contest/11253/I" target="_blank" rel="noopener">Penguins</a></h3><h4 id="题目大意-4"><a href="#题目大意-4" class="headerlink" title="题目大意"></a>题目大意</h4><p>企鹅游戏</p>
+<h4 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h4><p>广搜+记录路径</p>
+<h4 id="完整代码-4"><a href="#完整代码-4" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x1, y1, x2, y2;</span><br><span class="line">&#125;pre[<span class="number">25</span>][<span class="number">25</span>][<span class="number">25</span>][<span class="number">25</span>];</span><br><span class="line"><span class="keyword">char</span> Map1[<span class="number">25</span>][<span class="number">25</span>], Map2[<span class="number">25</span>][<span class="number">25</span>], ch[] = &#123; <span class="string">'D'</span>,<span class="string">'L'</span>,<span class="string">'R'</span>,<span class="string">'U'</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> dx1[] = &#123; <span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span> &#125;, dx2[] = &#123; <span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> dy [] = &#123; <span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">25</span>][<span class="number">25</span>][<span class="number">25</span>][<span class="number">25</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node&gt; q;</span><br><span class="line">	q.push(&#123; x1,y1,x2,y2 &#125;);</span><br><span class="line">	vis[x1][y1][x2][y2] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node t = q.front(); q.pop();</span><br><span class="line">		<span class="keyword">if</span> (t.x1 == <span class="number">20</span> &amp;&amp; t.y1 == <span class="number">1</span> &amp;&amp; t.x2 == <span class="number">1</span> &amp;&amp; t.y2 == <span class="number">1</span>) 	<span class="keyword">return</span>;</span><br><span class="line">		rep(i, <span class="number">0</span>, <span class="number">3</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> X1 = t.x1 + dx1[i], X2 = t.x2 + dx2[i];</span><br><span class="line">			<span class="keyword">int</span> Y1 = t.y1 + dy [i], Y2 = t.y2 + dy [i];</span><br><span class="line">			<span class="keyword">if</span> (X1 &gt; <span class="number">20</span> || X1 &lt; <span class="number">1</span> || Y1 &gt; <span class="number">20</span> || Y1 &lt; <span class="number">1</span> || Map1[Y1][X1] == <span class="string">'#'</span>)</span><br><span class="line">				X1 = t.x1, Y1 = t.y1;</span><br><span class="line">			<span class="keyword">if</span> (X2 &gt; <span class="number">20</span> || X2 &lt; <span class="number">1</span> || Y2 &gt; <span class="number">20</span> || Y2 &lt; <span class="number">1</span> || Map2[Y2][X2] == <span class="string">'#'</span>)</span><br><span class="line">				X2 = t.x2, Y2 = t.y2;</span><br><span class="line">			<span class="keyword">if</span> (!vis[X1][Y1][X2][Y2]) &#123;</span><br><span class="line">				vis[X1][Y1][X2][Y2] = <span class="number">1</span>;</span><br><span class="line">				q.push(&#123; X1,Y1,X2,Y2 &#125;);</span><br><span class="line">				pre[X1][Y1][X2][Y2] = t;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> x1,<span class="keyword">int</span> y1,<span class="keyword">int</span> x2,<span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ans; <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	Map1[y1][x1] = Map2[y2][x2] = <span class="string">'A'</span>;</span><br><span class="line">	<span class="keyword">while</span> (x1 != <span class="number">20</span> || y1 != <span class="number">20</span> || x2 != <span class="number">1</span> || y2 != <span class="number">20</span>) &#123;</span><br><span class="line">		node p = pre[x1][y1][x2][y2];</span><br><span class="line">		Map1[p.y1][p.x1] = Map2[p.y2][p.x2] = <span class="string">'A'</span>;</span><br><span class="line">		rep(i, <span class="number">0</span>, <span class="number">3</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> X1 = p.x1 + dx1[i], X2 = p.x2 + dx2[i];</span><br><span class="line">			<span class="keyword">int</span> Y1 = p.y1 + dy [i], Y2 = p.y2 + dy [i];</span><br><span class="line">			<span class="keyword">if</span> (X1 &gt; <span class="number">20</span> || X1 &lt; <span class="number">1</span> || Y1 &gt; <span class="number">20</span> || Y1 &lt; <span class="number">1</span> || Map1[Y1][X1] == <span class="string">'#'</span>)</span><br><span class="line">				X1 = p.x1, Y1 = p.y1;</span><br><span class="line">			<span class="keyword">if</span> (X2 &gt; <span class="number">20</span> || X2 &lt; <span class="number">1</span> || Y2 &gt; <span class="number">20</span> || Y2 &lt; <span class="number">1</span> || Map2[Y2][X2] == <span class="string">'#'</span>)</span><br><span class="line">				X2 = p.x2, Y2 = p.y2;</span><br><span class="line">			<span class="keyword">if</span> (X1 == x1 &amp;&amp; Y1 == y1 &amp;&amp; X2 == x2 &amp;&amp; Y2 == y2) &#123;</span><br><span class="line">				ans += ch[i]; <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cnt++;</span><br><span class="line">		x1 = p.x1, y1 = p.y1, x2 = p.x2, y2 = p.y2;</span><br><span class="line">	&#125;</span><br><span class="line">	reverse(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	rep(i, <span class="number">1</span>, <span class="number">20</span>) &#123;</span><br><span class="line">		rep(j, <span class="number">1</span>, <span class="number">20</span>)	<span class="built_in">cin</span> &gt;&gt; Map1[i][j];</span><br><span class="line">		rep(j, <span class="number">1</span>, <span class="number">20</span>)	<span class="built_in">cin</span> &gt;&gt; Map2[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">	bfs(<span class="number">20</span>, <span class="number">20</span>, <span class="number">1</span>, <span class="number">20</span>);</span><br><span class="line">	<span class="built_in">print</span>(<span class="number">20</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">	rep(i, <span class="number">1</span>, <span class="number">20</span>) &#123;</span><br><span class="line">		rep(j, <span class="number">1</span>, <span class="number">20</span>)	<span class="built_in">cout</span> &lt;&lt; Map1[i][j];</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		rep(j, <span class="number">1</span>, <span class="number">20</span>)	<span class="built_in">cout</span> &lt;&lt; Map2[i][j];</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="K-Stack"><a href="#K-Stack" class="headerlink" title="K-Stack"></a>K-<a href="https://ac.nowcoder.com/acm/contest/11253/K" target="_blank" rel="noopener">Stack</a></h3><h4 id="题目大意-5"><a href="#题目大意-5" class="headerlink" title="题目大意"></a>题目大意</h4><p>有一个序列a，对于a构造一个单调栈，$b[i]$为构造到$a[i]$时，单调栈的大小，现给你某些b数列的值，问你能否构造出一个合法的序列a。</p>
+<h4 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h4><p>首先我们需要把b数组给补全，对于已经标记过了的我们没办法更改，对于那些没有标记的考虑，我们位于i点时，要么就是向单调栈中push一个数，要么就是push的数比较小，导致单调栈的大小减小，我们贪心的想，我增大栈容量一次只能加一，但是我排空栈倒是可以一次减少许多，所以我们选择对于没标记过的点，他的容量为前一个值加一，即$b[i]=b[i-1]+1$，如果前后两个容量差大于1，那么肯定没有合法解。</p>
+<p>补全完b数组之后，我们可以倒着来构造，如果栈的容量比该点的要求小，就需要往里面push值，从1开始，每次push到刚好满足该点要求的容量，那么这点的a，就是栈顶元素。</p>
+<h4 id="完整代码-5"><a href="#完整代码-5" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>); <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n, m; <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">		<span class="keyword">int</span> p, x; <span class="built_in">cin</span> &gt;&gt; p &gt;&gt; x;</span><br><span class="line">		b[p] = x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">	rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!b[i])	b[i] = b[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (b[i] - b[i - <span class="number">1</span>] &gt; <span class="number">1</span>)	flag = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">	<span class="keyword">int</span> t = <span class="number">1</span>;</span><br><span class="line">	per(i, n, <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">while</span> (s.<span class="built_in">size</span>() &lt; b[i])	s.push(t++);</span><br><span class="line">		a[i] = s.top(), s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	rep(i, <span class="number">1</span>, n)	<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sakurakarma.github.io/2021/07/27/2021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A52/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/07/21/2021%E7%89%9B%E5%AE%A2%E6%9A%91%E6%9C%9F%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%90%A51/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">2021牛客暑期多校训练营1</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'bwOzr62v0Ph86E8Fkugrk23T-gzGzoHsz',
+        app_key: '9Hdc20bs1lT3AkuRCXHftGGq',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2021
+        sakurakarma
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about%20me">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['纵使暂如尘埃，终究光芒万丈', '一个为梦想而追逐的ACMer', '不断努力，永不放弃'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<!-- 复制 -->
+
+  
+<link rel="stylesheet" href="/css/clipboard.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+    
+  </div>
+</body>
+
+</html>
